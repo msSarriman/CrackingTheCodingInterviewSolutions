@@ -21,7 +21,7 @@ public class IntQuest7 {
 
     /**
      * This function rotates the matrix left by 90 degrees.
-     * It does so, by reading the matrix from the last to the first column, row by for.
+     * It does so, by reading the matrix from the last to the first column, row by row.
      * e.g.
      * for each column from the end:
      *  for each row from the beginning:
@@ -41,6 +41,7 @@ public class IntQuest7 {
     /**
      * This function adds elements to the rotated array.
      * It populates element by element, row by row.
+     * It increments the indexes accordingly.
      * @param element = element to add each time.
      */
     private static void addElement(int element){
