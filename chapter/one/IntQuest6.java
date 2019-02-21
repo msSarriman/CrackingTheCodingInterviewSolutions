@@ -19,6 +19,7 @@ public class IntQuest6 {
      * Then it assigns to the char the new value, and sets the counter to 1.
      * After the for finished, it appends the last elements, since the final else statement,
      * didn't trigger.
+     *
      * @param s1 = string to be compressed
      * @return s1 < compressedString ? s1 : compressedString
      */

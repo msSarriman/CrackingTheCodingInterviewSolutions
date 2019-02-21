@@ -18,6 +18,7 @@ public class IntQuest1 {
     /**
      * This function removes the duplicates from a given List, by using a Set to determine if the current
      * element is a duplicate or not.
+     *
      * @param myList =  the List to remove the duplicates from
      * @return The given list with the duplicates removed
      */
@@ -25,7 +26,7 @@ public class IntQuest1 {
         Set<Integer> mySet = new HashSet<>();
         int myListSize = myList.size();
         for (int i = 0; i < myListSize; i++) {
-            if (mySet.contains(myList.get(i))){
+            if (mySet.contains(myList.get(i))) {
                 myList.remove(i--);
                 myListSize--;
             } else {
@@ -38,6 +39,7 @@ public class IntQuest1 {
 
     /**
      * FOLLOW UP
+     *
      * @param myList =  the List to remove the duplicates from
      * @return The given list with the duplicates removed
      */

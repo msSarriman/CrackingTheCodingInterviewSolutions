@@ -16,13 +16,14 @@ public class IntQuest3 {
     /**
      * this function returns a urlified version of the str string.
      * What it really does is that it replaces all the spaces with "%20"
+     *
      * @param str
      * @return
      */
-    private static String urlifyWithBuffer(String str){
+    private static String urlifyWithBuffer(String str) {
         StringBuilder sb = new StringBuilder();
-        for (char c : str.toCharArray()){
-            if (c == ' '){
+        for (char c : str.toCharArray()) {
+            if (c == ' ') {
                 sb.append("%20");
             } else {
                 sb.append(c);
@@ -35,10 +36,11 @@ public class IntQuest3 {
     /**
      * This function performs the same action but it does the operation in place, as ordered by the needs of this
      * implementation.
+     *
      * @param str
      * @return
      */
-    private static String urlifyInPlace(String str){
+    private static String urlifyInPlace(String str) {
         int len = str.length(), numOfSpaces = 0;
         for (int i = 0; i < len; i++) {
             if (str.charAt(i) == ' ') numOfSpaces++;
@@ -46,10 +48,10 @@ public class IntQuest3 {
         char[] charArray = new char[(len - numOfSpaces) + (3 * numOfSpaces)];
         int i = 0;
         for (char c : str.toCharArray()) {
-            if (c == ' '){
+            if (c == ' ') {
                 charArray[i] = '%';
-                charArray[i+1] = '2';
-                charArray[i+2] = '0';
+                charArray[i + 1] = '2';
+                charArray[i + 2] = '0';
                 i += 3;
             } else {
                 charArray[i++] = c;

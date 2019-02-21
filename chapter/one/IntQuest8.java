@@ -24,6 +24,7 @@ public class IntQuest8 {
 
     /**
      * This function, for each zero in the matrix array, zeroes everything at the column and the row that it belongs.
+     *
      * @param matrix = the matrix to iterate through.
      * @return = the zeroed matrix.
      */
@@ -34,7 +35,7 @@ public class IntQuest8 {
         for (int i = 0; i < matrix.length; i++) {
             if (skipX.contains(i)) continue;
             for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] == 0 && !skipΥ.contains(j)){
+                if (matrix[i][j] == 0 && !skipΥ.contains(j)) {
                     skipX.add(i);
                     skipΥ.add(j);
                     Arrays.fill(matrix[i], 0);

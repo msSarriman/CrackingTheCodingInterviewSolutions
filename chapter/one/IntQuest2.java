@@ -16,11 +16,12 @@ public class IntQuest2 {
      * It then subtracts a value from each key of the hashMap.
      * If success, all the values of the HashMap will be zero.
      * Else the s1 and s2 are not permutated.
+     *
      * @param s1
      * @param s2
      * @return
      */
-    private static String checkPermutation(String s1, String s2){
+    private static String checkPermutation(String s1, String s2) {
         if (s1.length() != s2.length()) return "Not a match";
 
         Map<Character, Integer> myMap = new HashMap<>();
@@ -28,10 +29,10 @@ public class IntQuest2 {
         for (int i = 0; i < s1.length(); i++) {
             char c = s1.charAt(i);
             if (!myMap.containsKey(c))
-                myMap.put(c,1);
+                myMap.put(c, 1);
             else {
                 int temp = myMap.get(c);
-                myMap.put(c,temp+1);
+                myMap.put(c, temp + 1);
             }
         }
         for (int i = 0; i < s2.length(); i++) {
@@ -43,7 +44,7 @@ public class IntQuest2 {
                 myMap.put(c, temp - 1);
             }
         }
-        for (Map.Entry<Character, Integer> kv : myMap.entrySet()){
+        for (Map.Entry<Character, Integer> kv : myMap.entrySet()) {
             if (kv.getValue() != 0) return "Not a match";
         }
 
@@ -60,9 +61,9 @@ public class IntQuest2 {
         String a = "abcdefghijklmnopqrstuvwxyz";
         String b = "zyxwvutsrqponmlkjihgfedcba";
 
-        System.out.println(checkPermutation(s1,s2));
-        System.out.println(checkPermutation(s1,s3));
-        System.out.println(checkPermutation(s1,s4));
-        System.out.println(checkPermutation(a,b));
+        System.out.println(checkPermutation(s1, s2));
+        System.out.println(checkPermutation(s1, s3));
+        System.out.println(checkPermutation(s1, s4));
+        System.out.println(checkPermutation(a, b));
     }
 }

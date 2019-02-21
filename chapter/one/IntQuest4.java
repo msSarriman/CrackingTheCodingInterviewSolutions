@@ -28,19 +28,20 @@ public class IntQuest4 {
      * Strings that have an even number of characters, can have two perfect halves.
      * Strings with an odd number of characters, have a SINGLE character (the center) that appears
      * also an odd number of times (therefore the if statement on % 2)
+     *
      * @param str = String to be evaluated
      * @return = true|false
      */
-    private static boolean isPaliPerm(String str){
+    private static boolean isPaliPerm(String str) {
         int len = str.length();
         Set<Character> mySet = new HashSet<>();
 
-        for (char c : str.toCharArray()){
+        for (char c : str.toCharArray()) {
             if (mySet.contains(c)) mySet.remove(c);
             else mySet.add(c);
         }
 
-        if (len % 2 == 0){
+        if (len % 2 == 0) {
             if (mySet.isEmpty()) return true;
             else return false;
         } else {

@@ -26,12 +26,13 @@ public class IntQuest5 {
      * The next mismatch triggers the flag into returning false.
      * If there is a mismatch and the strings don't have the same length,
      * means that a character can be inserted into the smaller string (str1)
+     *
      * @param s1 first string
      * @param s2 second string
      * @return true|false
      */
-    private static boolean oneWay(String s1, String s2){
-        if (Math.abs(s1.length() - s2.length()) > 1){
+    private static boolean oneWay(String s1, String s2) {
+        if (Math.abs(s1.length() - s2.length()) > 1) {
             return false;
         }
 
@@ -42,7 +43,7 @@ public class IntQuest5 {
         int index1 = 0;
         int index2 = 0;
         boolean foundDifference = false;
-        while (index2 < s2.length() && index1 < s1.length()){
+        while (index2 < s2.length() && index1 < s1.length()) {
             if (str1.charAt(index1) != str2.charAt(index2)) {
                 /* Ensure that this is the first difference found */
                 if (foundDifference) return false;
@@ -67,7 +68,7 @@ public class IntQuest5 {
         String s4 = "thsisok";
         String s5 = "thisisokn";
 
-        System.out.println(oneWay(s1,s2));
-        System.out.println(oneWay(s1,s4));
+        System.out.println(oneWay(s1, s2));
+        System.out.println(oneWay(s1, s4));
     }
 }

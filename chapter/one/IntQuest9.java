@@ -27,6 +27,7 @@ public class IntQuest9 {
      * and value the occurrences of the specific character.
      * Every occurrence on s1 is incrementing the value at the corresponding key, and
      * every occurrence on s2 is decrementing the value at the corresponding key.
+     *
      * @param s1 = first string
      * @param s2 = second string
      * @return true or false
@@ -39,13 +40,13 @@ public class IntQuest9 {
             char s1c = s1.charAt(i);
             char s2c = s2.charAt(i);
             if (!myMap.containsKey(s1c)) {
-                myMap.put(s1c,1);
+                myMap.put(s1c, 1);
             } else {
                 int temp = myMap.get(s1c);
                 myMap.put(s1c, temp + 1);
             }
             if (!myMap.containsKey(s2c)) {
-                myMap.put(s2c,-1);
+                myMap.put(s2c, -1);
             } else {
                 int temp = myMap.get(s2c);
                 myMap.put(s2c, temp - 1);
@@ -65,10 +66,10 @@ public class IntQuest9 {
         String s3 = "abcdefghijklmnop";
         String s4 = "mbfplencgakhodji";
 
-        System.out.println(isSubstring(s1,s2));
-        System.out.println(isSubstring(s1,s3));
-        System.out.println(isSubstring(s3,s4));
-        System.out.println(isSubstring(s3,s1));
+        System.out.println(isSubstring(s1, s2));
+        System.out.println(isSubstring(s1, s3));
+        System.out.println(isSubstring(s3, s4));
+        System.out.println(isSubstring(s3, s1));
 
     }
 }

@@ -24,13 +24,14 @@ public class IntQuest7 {
      * It does so, by reading the matrix from the last to the first column, row by row.
      * e.g.
      * for each column from the end:
-     *  for each row from the beginning:
+     * for each row from the beginning:
      * The result is a rotated matrix and is stored at the static variable 'rotated'.
+     *
      * @param matrix = the matrix to be rotated
      */
     private static void rotate(int[][] matrix) {
         getRotatedRam(matrix.length);
-        for (int i = matrix.length-1; i >= 0; i--) {
+        for (int i = matrix.length - 1; i >= 0; i--) {
             for (int j = 0; j < matrix.length; j++) {
                 addElement(matrix[j][i]);
             }
@@ -42,13 +43,14 @@ public class IntQuest7 {
      * This function adds elements to the rotated array.
      * It populates element by element, row by row.
      * It increments the indexes accordingly.
+     *
      * @param element = element to add each time.
      */
-    private static void addElement(int element){
+    private static void addElement(int element) {
         rotated[xDim][yDim] = element;
-        if (++yDim == rotated.length){
+        if (++yDim == rotated.length) {
             yDim = 0;
-            if (++xDim == rotated.length){
+            if (++xDim == rotated.length) {
                 xDim = 0;
             }
         }
@@ -57,12 +59,12 @@ public class IntQuest7 {
 
     /**
      * This function is initializing the rotated matrix.
+     *
      * @param size = the size to initialize the matrix.
      */
-    private static void getRotatedRam(int size){
+    private static void getRotatedRam(int size) {
         rotated = new int[size][size];
     }
-
 
 
     public static void main(String[] args) {
