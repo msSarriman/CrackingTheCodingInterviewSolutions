@@ -9,7 +9,7 @@ package chapter.one;
 import java.util.Map;
 import java.util.HashMap;
 
-public class IntQuestOne {
+public class IntQuest1 {
 
 
     /**

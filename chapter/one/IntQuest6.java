@@ -10,7 +10,7 @@
  */
 package chapter.one;
 
-public class IntQuestSix {
+public class IntQuest6 {
 
     /**
      * This function compresses the String given as the argument s1.

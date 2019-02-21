@@ -16,7 +16,7 @@
 package chapter.one;
 
 
-public class IntQuestFive {
+public class IntQuest5 {
 
     /**
      * Credits to Cracking the Coding Interview.

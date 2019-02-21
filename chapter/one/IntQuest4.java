@@ -19,7 +19,7 @@ import java.util.Set;
 import java.util.HashSet;
 
 
-public class IntQuestFour {
+public class IntQuest4 {
 
 
     /**

@@ -12,7 +12,7 @@
  */
 package chapter.one;
 
-public class IntQuestThree {
+public class IntQuest3 {
     /**
      * this function returns a urlified version of the str string.
      * What it really does is that it replaces all the spaces with "%20"

@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 
-public class IntQuestTwo {
+public class IntQuest2 {
 
     /**
      * This function check if the s1 is a permutation of s2, or vice versa.
