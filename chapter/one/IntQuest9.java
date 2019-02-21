@@ -23,7 +23,8 @@ public class IntQuest9 {
 
     /**
      * This function checks if s1 is a substring os s2.
-     * It does so by updating a HashMap with values beeing the characters of the string.
+     * It does so by updating a HashMap with keys being the characters of each string,
+     * and value the occurrences of the specific character.
      * Every occurrence on s1 is incrementing the value at the corresponding key, and
      * every occurrence on s2 is decrementing the value at the corresponding key.
      * @param s1 = first string
