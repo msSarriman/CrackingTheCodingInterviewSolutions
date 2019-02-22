@@ -1,8 +1,8 @@
 /**
- * Check Permutation: Given two strings, write a method to decide if one is a permutation of the other
+ * Check Permutation: Given _2two strings, write a method to decide if _1one is a permutation of the other
  * O(N)
  */
-package chapter.one;
+package chapter._1one;
 
 import java.util.Map;
 import java.util.HashMap;

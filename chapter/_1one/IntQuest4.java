@@ -12,7 +12,7 @@
  * -Have you tried a hash table? You should be able to get this down to 0 (N) time.
  * -Can you reduce the space usage by using a bit vector?
  */
-package chapter.one;
+package chapter._1one;
 
 
 import java.util.Set;
@@ -25,7 +25,7 @@ public class IntQuest4 {
     /**
      * A string is a palindrome permutation when it contains the same number of characters at both sides of it.
      * A side is considered to be, each half of that string.
-     * Strings that have an even number of characters, can have two perfect halves.
+     * Strings that have an even number of characters, can have _2two perfect halves.
      * Strings with an odd number of characters, have a SINGLE character (the center) that appears
      * also an odd number of times (therefore the if statement on % 2)
      *

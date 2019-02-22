@@ -11,7 +11,7 @@
  * need to be zeroed. Can you reduce the additional space usage to a(1) by using the
  * matrix itself for data storage?
  */
-package chapter.one;
+package chapter._1one;
 
 import java.util.HashSet;
 import java.util.Set;

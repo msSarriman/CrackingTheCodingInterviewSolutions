@@ -5,10 +5,10 @@
  * Hints: #9, #40
  * - Have you tried a hash table? You should be able to do this in a single pass of the linked
  * list
- * - Without extra space, you'll need a(N2) time.Try using two pointers, where the second
- * one searches ahead of the first one.
+ * - Without extra space, you'll need a(N2) time.Try using _2two pointers, where the second
+ * _1one searches ahead of the first _1one.
  */
-package chapter.two;
+package chapter._2two;
 
 import java.util.*;
 

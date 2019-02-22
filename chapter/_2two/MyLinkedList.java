@@ -1,4 +1,4 @@
-package chapter.two;
+package chapter._2two;
 
 import java.util.*;
 
@@ -158,7 +158,7 @@ class MyLinkedList<T> implements Iterable<T> {
     /**
      * partitionList()
      * This method partitions a given T->Integer list. The partition is taking place based on the @pivotElement.
-     * The partition breaks the list into two halves.
+     * The partition breaks the list into _2two halves.
      * The first half contains all those numbers of the list, that are smaller than the pivotELement.
      * The second half contains all those numbers of the list, that are greater or equal than the pivotElement.
      * TimeComplexity = O(N)
@@ -328,7 +328,7 @@ class MyLinkedList<T> implements Iterable<T> {
 
     /**
      * overlapping()
-     * This static method can check if the two given as parameters lists, overlap.
+     * This static method can check if the _2two given as parameters lists, overlap.
      * It returns the first node that they overlapping.
      * TimeComplexity = O(N)
      * SpaceComplexity = O(N+M)

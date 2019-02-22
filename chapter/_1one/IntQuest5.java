@@ -1,7 +1,7 @@
 /**
- * One Away: There are three types of edits that can be performed on strings: insert a character,
- * remove a character, or replace a character. Given two strings, write a function to check if they are
- * one edit (or zero edits) away.
+ * One Away: There are _3three types of edits that can be performed on strings: insert a character,
+ * remove a character, or replace a character. Given _2two strings, write a function to check if they are
+ * _1one edit (or zero edits) away.
  * EXAMPLE
  * pale, pIe -> true
  * pales. pale -> true
@@ -10,17 +10,17 @@
  * Hints: #23, #97, #130
  * - Start with the easy thing. Can you check each of the conditions separately?
  * - What is the relationship between the "insert character" option and the "remove character" option?
- * Do these need to be two separate checks?
- * - Can you do all three checks in a single pass?
+ * Do these need to be _2two separate checks?
+ * - Can you do all _3three checks in a single pass?
  */
-package chapter.one;
+package chapter._1one;
 
 
 public class IntQuest5 {
 
     /**
      * Credits to Cracking the Coding Interview.
-     * This function check character per character two strings.
+     * This function check character per character _2two strings.
      * If the characters match it increases both indexes.
      * If they don't it sets a "bomb-like" flag to true.
      * The next mismatch triggers the flag into returning false.

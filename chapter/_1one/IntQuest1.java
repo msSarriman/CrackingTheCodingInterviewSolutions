@@ -3,7 +3,7 @@
  * What if you cannot use additional data structures?
  * Hints: #44, #777, #732
  */
-package chapter.one;
+package chapter._1one;
 
 
 import java.util.Map;

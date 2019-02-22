@@ -13,7 +13,7 @@
  * - Go back to the previous hint. Remember:There are ways to return multiple values. You
  * can do this with a new class.
  */
-package chapter.two;
+package chapter._2two;
 
 
 public class IntQuest6 {

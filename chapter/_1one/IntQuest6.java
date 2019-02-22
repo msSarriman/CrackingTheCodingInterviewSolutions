@@ -8,7 +8,7 @@
  * - Be careful that you aren't repeatedly concatenating strings together. This can be very
  * inefficient.
  */
-package chapter.one;
+package chapter._1one;
 
 public class IntQuest6 {
 

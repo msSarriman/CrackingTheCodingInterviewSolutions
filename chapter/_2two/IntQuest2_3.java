@@ -1,24 +1,36 @@
 /**
- * Partition: Write code to partition a linked list around a value x, such that all nodes less than x come
- * before all nodes greater than or equal to x. lf x is contained within the list, the values of x only need
- * to be after the elements less than x (see below).The partition element x can appear anywhere in the
- * "right partition"; it does not need to appear between the left and right partitions.
+ * 2)
+ * Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list.
+ * Hints: #8, #25, #47, #67, # 726
+ * - What if you knew the linked list size? What is the difference between finding the Kth-tolast element
+ * and finding the Xth element?
+ * - If you don't know the linked list size, can you compute it? How does this impact the
+ * runtime?
+ * - Look at this graph. Is there any node you can identify that will definitely be okay to build
+ * first?
+ * - You might find it useful to return multiple values. Some languages don't directly support
+ * this, but there are workarounds in essentially any language. What are some of those
+ * workarounds?
+ * - We're probably going to run this algorithm many times. If we did more preprocessing, is
+ * there a way we could optimize this?
+ * 3)
+ * Delete Middle Node: Implement an algorithm to delete a node in the middle (i.e., any node but
+ * the first and last node, not necessarily the exact middle) of a singly linked list, given only access to
+ * that node.
  * EXAMPLE
- * Input: 3 -> 5 -> 8 -> 5 - > 10 -> 2 -> 1 [partition = 5)
- * Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
- * Hints: #3, #24
- * - There are many solutions to this problem, most of which are equally optimal in runtime.
- * Some have shorter, cleaner code than others. Can you brainstorm different solutions?
- * - Consider that the elements don't have to stay in the same relative order. We only need
- * to ensure that elements less than the pivot must be before elements greater than the
- * pivot. Does that help you come up with more solutions?
+ * Input: the node c from the linked list a- >b- >c - >d - >e- >f
+ * Result: nothing is returned, but the new linked list looks like a - >b- >d - >e- >f
+ * Hints: #72
+ * - Picture the list 1- > 5- >9 - >12.Removing 9 would make it look like 1- > 5 - >12.You only
+ * have access to the 9 node. Can you make it look like the correct answer?
  */
-package chapter.two;
+package chapter._2two;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class IntQuest4 {
+
+public class IntQuest2_3 {
     private static void printList(MyLinkedList<Integer> list) {
         for (int i = 0; i < list.getSize(); i++){
             System.out.print(list.getiData(i) + " ");
@@ -38,7 +50,7 @@ public class IntQuest4 {
         sc.nextLine();
 
 
-        /* Populate the MyLinkedList */
+        /* Populate the LinkedList */
         for (int i = 0; i < listSize; i++) {
             myList.addNode(rand.nextInt(256));
         }
@@ -52,7 +64,7 @@ public class IntQuest4 {
         /*
         Simple command line interface:
         <command> <value>
-        <command> : <getKend>, <add>, <getSize>, <remove>, <exit>, <partition>
+        <command> : <getKend>, <add>, <getSize>, <remove>, <exit>
         <value>   : Integer
         Be aware at inputs as no exception is being handled.
          */
@@ -70,9 +82,6 @@ public class IntQuest4 {
                 System.out.println(myList.getSize());
             } else if (s[0].equals("remove")) {
                 myList.removeNotEdge(Integer.parseInt(s[1]));
-                printList(myList);
-            } else if (s[0].equals("partition")) {
-                myList = myList.partitionList(myList, Integer.parseInt(s[1]));
                 printList(myList);
             } else if (s[0].equals("exit")){
                 break;

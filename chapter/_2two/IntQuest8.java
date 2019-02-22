@@ -1,4 +1,4 @@
-package chapter.two;
+package chapter._2two;
 
 public class IntQuest8 {
     public static void main(String[] args) {
