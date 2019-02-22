@@ -12,6 +12,7 @@ import java.util.Iterator;
  * getHead()
  * getTail()
  * partitionList(MyLinkedList<T> list)
+ * printList()
  *
  * @param <T> . Type can be defined by user.
  */
@@ -202,6 +203,15 @@ class MyLinkedList<T> implements Iterable<T> {
         }
         return list;
     }
+
+
+    protected void printList() {
+        for (T i : this) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
 
     @Override
     public Iterator<T> iterator() {
