@@ -14,6 +14,8 @@ import java.util.Stack;
  * getTail()
  * partitionList(MyLinkedList<T> list)
  * printList()
+ * isPalindrome()
+ * getNode(int Index)
  *
  * @param <T> . Type can be defined by user.
  */
@@ -69,6 +71,7 @@ class MyLinkedList<T> implements Iterable<T> {
 
     /**
      * This method returns the data contained in the nodeIndex'th node of the MyLinkedList
+     * TimeComplexity = O(N)
      *
      * @param nodeIndex = the node to retriece the data from.
      * @return the data at the specific node
@@ -102,6 +105,7 @@ class MyLinkedList<T> implements Iterable<T> {
 
     /**
      * Return the size of the linked list.
+     * TimeComplexity = O(N)
      *
      * @return = The size (int) of the MyLinkedList object
      */
@@ -188,6 +192,7 @@ class MyLinkedList<T> implements Iterable<T> {
      * The partition breaks the list into two halves.
      * The first half contains all those numbers of the list, that are smaller than the pivotELement.
      * The second half contains all those numbers of the list, that are greater or equal than the pivotElement.
+     * TimeComplexity = O(N)
      *
      * @param list = The list to be partitioned.
      * @param pivotElement = The element to partition the list.
@@ -228,6 +233,8 @@ class MyLinkedList<T> implements Iterable<T> {
 
     /**
      * This method checks if the instance of the LinkedList is a palindrome.
+     * TimeComplexity = O(N)
+     * SpaceComplexity = O(N+(M/2))
      *
      * @return true|false
      */
@@ -248,6 +255,27 @@ class MyLinkedList<T> implements Iterable<T> {
             }
         }
         return true;
+    }
+
+
+    /**
+     * This method and its overloaded function, server the purpose of returning a reference to the Node
+     * with the index given as parameter to the function
+     * TimeComplexity = O(N)
+     *
+     * @param index = the i-th node to retrieve
+     * @return = Reference to i-th node
+     */
+    protected MyLinkedList getNode(int index) {
+        if (index == 0) return this;
+        else return getNode(--index, this.next);
+    }
+    private MyLinkedList getNode(int index, MyLinkedList node) throws IndexOutOfBoundsException{
+        if (index == 0) return this;
+        else {
+            if (node.next == null) throw new IndexOutOfBoundsException();
+            else return getNode(--index, node.next);
+        }
     }
 
 
