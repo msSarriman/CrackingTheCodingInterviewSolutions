@@ -1,6 +1,7 @@
 package chapter.two;
 
 import java.util.Iterator;
+import java.util.Stack;
 
 /**
  * This Class simulates some basic functionalities of a LinkedList.
@@ -176,13 +177,22 @@ class MyLinkedList<T> implements Iterable<T> {
         if (next.data == null) return this;
         else return getTail(this.next);
     }
-
     private MyLinkedList<T> getTail(MyLinkedList<T> node) {
         if (node.next.data == null) return this;
         else return getTail(node.next);
     }
 
 
+    /**
+     * This method partitions a given T->Integer list. The partition is taking place based on the @pivotElement.
+     * The partition breaks the list into two halves.
+     * The first half contains all those numbers of the list, that are smaller than the pivotELement.
+     * The second half contains all those numbers of the list, that are greater or equal than the pivotElement.
+     *
+     * @param list = The list to be partitioned.
+     * @param pivotElement = The element to partition the list.
+     * @return = The partitioned list.
+     */
     protected MyLinkedList<Integer> partitionList(MyLinkedList<Integer> list, int pivotElement) {
         MyLinkedList<Integer> bufferListLeft = new MyLinkedList<>();
         MyLinkedList<Integer> bufferListRight = new MyLinkedList<>();
@@ -205,6 +215,9 @@ class MyLinkedList<T> implements Iterable<T> {
     }
 
 
+    /**
+     * Simple void method that prints all the elements on the list.
+     */
     protected void printList() {
         for (T i : this) {
             System.out.print(i + " ");
@@ -213,12 +226,47 @@ class MyLinkedList<T> implements Iterable<T> {
     }
 
 
+    /**
+     * This method checks if the instance of the LinkedList is a palindrome.
+     *
+     * @return true|false
+     */
+    protected boolean isPalindrome() {
+        Stack<T> myStack = new Stack<>();
+        int listSize = this.getSize();
+        for (int i = 0; i < listSize; i++) {
+            if (listSize % 2 == 1 && i == (listSize / 2)) continue;
+            T currentValue = this.getiData(i);
+            if (i < (listSize / 2)) {
+                myStack.add(currentValue);
+            } else {
+                if (myStack.peek() != currentValue) {
+                    return false;
+                } else {
+                    myStack.pop();
+                }
+            }
+        }
+        return true;
+    }
+
+
+    /**
+     * Method that implements the for each function for the list's elements.
+     *
+     * @return forEach iterator on the list
+     */
     @Override
     public Iterator<T> iterator() {
         return new CustomIterator<>(this);
     }
 
 
+    /**
+     * List's iterator implementation.
+     *
+     * @param <T>
+     */
     class CustomIterator<T> implements Iterator<T> {
         MyLinkedList<T> node;
 
