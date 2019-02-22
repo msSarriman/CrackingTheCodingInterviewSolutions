@@ -251,7 +251,7 @@ class MyLinkedList<T> implements Iterable<T> {
         else return getNode(--index, this.next);
     }
     private MyLinkedList getNode(int index, MyLinkedList node) throws IndexOutOfBoundsException{
-        if (index == 0) return this;
+        if (index == 0) return node;
         else {
             if (node.next == null) throw new IndexOutOfBoundsException();
             else return getNode(--index, node.next);
@@ -312,22 +312,38 @@ class MyLinkedList<T> implements Iterable<T> {
 
 
     /**
+     * getNodeReference()
+     * Returns a reference to the node of the current link.
+     * @return
+     */
+    protected Node getNodeReference() {
+        return this.data;
+    }
+
+
+    /**
      * overlapping()
      * This static method can check if the two given as parameters lists, overlap.
      * It returns the first node that they overlapping.
+     * TimeComplexity = O(N)
+     * SpaceComplexity = O(N+M)
+     *
      * @param list1 = the first list
      * @param list2 = the second list
      * @return a reference to the node that the lists are overlapping
      */
     protected static MyLinkedList overlapping(MyLinkedList list1, MyLinkedList list2) {
-        Set<MyLinkedList> mySet = new HashSet<>();
+        Set<Integer> mySet = new HashSet<>();
         for (int i = 0; i < list1.getSize(); i++) {
-            mySet.add(list1.getNode(i));
+            Integer temp = System.identityHashCode(list1.getNode(i).getNodeReference());
+            mySet.add(temp);
         }
         for (int i = 0; i < list1.getSize(); i++) {
-            MyLinkedList temp = list2.getNode(i);
-            if (mySet.contains(temp)) {
-                return temp;
+            MyLinkedList tempMyLL = list2.getNode(i);
+            Node tempNode = tempMyLL.getNodeReference();
+            Integer tempValue = System.identityHashCode(tempNode);
+            if (mySet.contains(tempValue)) {
+                return tempMyLL;
             }
         }
         return null;

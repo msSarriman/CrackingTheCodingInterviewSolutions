@@ -17,6 +17,9 @@
  */
 package chapter.two;
 
+
+import static chapter.two.MyLinkedList.overlapping;
+
 public class IntQuest7 {
 
     public static void main(String[] args) {
@@ -38,6 +41,13 @@ public class IntQuest7 {
         list1.printList();
         list2.printList();
 
-        System.out.println();
+        System.out.println(overlapping(list1, list2)); // those lists are overlapping;
+
+        MyLinkedList<Integer> list3 = new MyLinkedList<>();
+        list3.addNode(3);
+        list3.addNode(4);
+        System.out.println(overlapping(list1, list3)); // those lists are not overlapping;
+
+
     }
 }
