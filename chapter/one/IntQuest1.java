@@ -40,7 +40,7 @@ public class IntQuest1 {
 
     /**
      * This function check without any additional DSs
-     * if the str has all unique characters, by using a boolen array
+     * if the str has all unique characters, by using a boolean array
      *
      * @param str
      * @return

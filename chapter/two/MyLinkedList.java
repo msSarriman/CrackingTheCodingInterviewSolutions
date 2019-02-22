@@ -44,7 +44,6 @@ class MyLinkedList<T> implements Iterable<T> {
      * addNode
      * Method that adds a node to the MyLinkedList, that contains data
      *
-     *
      * @param data = the data to be contained.
      */
     protected void addNode(T data) {
@@ -55,6 +54,7 @@ class MyLinkedList<T> implements Iterable<T> {
             addNode(data, this.next);
         }
     }
+
     private void addNode(T data, MyLinkedList<T> node) {
         if (node.data.getData() == null) {
             node.data.setData(data);
@@ -81,6 +81,7 @@ class MyLinkedList<T> implements Iterable<T> {
             else throw new IndexOutOfBoundsException();
         }
     }
+
     private T getiData(int nodeIndex, MyLinkedList<T> node) throws IndexOutOfBoundsException {
         if (nodeIndex == 0) return node.data.getData();
         else {
@@ -101,6 +102,7 @@ class MyLinkedList<T> implements Iterable<T> {
         if (this.data.getData() != null && this.next.data.getData() == null) return 1;
         else return 1 + getSize(this.next);
     }
+
     private int getSize(MyLinkedList<T> node) {
         if (node.data.getData() == null) return 0;
         else return 1 + getSize(node.next);
@@ -126,6 +128,7 @@ class MyLinkedList<T> implements Iterable<T> {
         }
         removeNotEdge(--index, this.next);
     }
+
     private void removeNotEdge(int index, MyLinkedList<T> node) {
         if (index - 1 == 0) {
             node.next = node.next.next;
@@ -133,7 +136,6 @@ class MyLinkedList<T> implements Iterable<T> {
             removeNotEdge(--index, node.next);
         }
     }
-
 
 
     /**
@@ -146,6 +148,7 @@ class MyLinkedList<T> implements Iterable<T> {
         if (next.data.getData() == null) return this;
         else return getTail(this.next);
     }
+
     private MyLinkedList<T> getTail(MyLinkedList node) {
         if (node.next.data.getData() == null) return node;
         else return getTail(node.next);
@@ -160,7 +163,7 @@ class MyLinkedList<T> implements Iterable<T> {
      * The second half contains all those numbers of the list, that are greater or equal than the pivotElement.
      * TimeComplexity = O(N)
      *
-     * @param list = The list to be partitioned.
+     * @param list         = The list to be partitioned.
      * @param pivotElement = The element to partition the list.
      * @return = The partitioned list.
      */
@@ -250,7 +253,8 @@ class MyLinkedList<T> implements Iterable<T> {
         if (index == 0) return this;
         else return getNode(--index, this.next);
     }
-    private MyLinkedList getNode(int index, MyLinkedList node) throws IndexOutOfBoundsException{
+
+    private MyLinkedList getNode(int index, MyLinkedList node) throws IndexOutOfBoundsException {
         if (index == 0) return node;
         else {
             if (node.next == null) throw new IndexOutOfBoundsException();
@@ -314,6 +318,7 @@ class MyLinkedList<T> implements Iterable<T> {
     /**
      * getNodeReference()
      * Returns a reference to the node of the current link.
+     *
      * @return
      */
     protected Node getNodeReference() {
@@ -348,13 +353,30 @@ class MyLinkedList<T> implements Iterable<T> {
         }
         return null;
     }
+
+
+    /**
+     * isCircular()
+     * This method checks is the object that is calling it, is a circular linkedList.
+     *
+     * @return true|false
+     */
+    protected boolean isCircular() {
+        Set<Integer> mySet = new HashSet<>();
+        for (int i = 0; i < this.getSize(); i++) {
+            int temp = System.identityHashCode(getNode(i).getNodeReference());
+            if (mySet.contains(temp)) return true;
+            else mySet.add(temp);
+        }
+        return false;
+    }
 }
 
-class Node <T> {
+class Node<T> {
     private T data;
 
 
-    Node(){
+    Node() {
         this.data = null;
     }
 
