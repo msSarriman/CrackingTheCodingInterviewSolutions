@@ -3,10 +3,15 @@ package chapter.two;
 import java.util.Iterator;
 
 /**
- * This class is a MyLinkedList class that can provide
- * add by addNode(T data),
- * getData(index) by getiData(int nodeIndex),
- * getSize().
+ * This Class simulates some basic functionalities of a LinkedList.
+ * Functions implemented:
+ * addNode(T node)
+ * getiData(int nodeIndex)
+ * getSize()
+ * removeNotEdge(int index)
+ * getHead()
+ * getTail()
+ * partitionList(MyLinkedList<T> list)
  *
  * @param <T> . Type can be defined by user.
  */
