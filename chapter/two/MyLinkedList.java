@@ -312,14 +312,14 @@ class MyLinkedList<T> implements Iterable<T> {
 
 
     /**
-     * interlapping()
+     * overlapping()
      * This static method can check if the two given as parameters lists, overlap.
      * It returns the first node that they overlapping.
      * @param list1 = the first list
      * @param list2 = the second list
      * @return a reference to the node that the lists are overlapping
      */
-    protected static MyLinkedList interlapping(MyLinkedList list1, MyLinkedList list2) {
+    protected static MyLinkedList overlapping(MyLinkedList list1, MyLinkedList list2) {
         Set<MyLinkedList> mySet = new HashSet<>();
         for (int i = 0; i < list1.getSize(); i++) {
             mySet.add(list1.getNode(i));
