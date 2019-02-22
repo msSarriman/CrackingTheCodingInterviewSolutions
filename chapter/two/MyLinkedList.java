@@ -1,7 +1,6 @@
 package chapter.two;
 
-import java.util.Iterator;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * This Class simulates some basic functionalities of a LinkedList.
@@ -147,8 +146,8 @@ class MyLinkedList<T> implements Iterable<T> {
         if (next.data.getData() == null) return this;
         else return getTail(this.next);
     }
-    private MyLinkedList<T> getTail(MyLinkedList<T> node) {
-        if (node.next.data.getData() == null) return this;
+    private MyLinkedList<T> getTail(MyLinkedList node) {
+        if (node.next.data.getData() == null) return node;
         else return getTail(node.next);
     }
 
@@ -267,9 +266,9 @@ class MyLinkedList<T> implements Iterable<T> {
      * @param node = a Node object to add to the list
      */
     protected void addNodeByReference(Node<T> node) {
-        MyLinkedList tail = getTail().next;
-        tail.data = node;
-        tail.next = new MyLinkedList<>();
+        MyLinkedList lastNull = getTail().next;
+        lastNull.data = node;
+        lastNull.next = new MyLinkedList<>();
     }
 
 
@@ -309,6 +308,29 @@ class MyLinkedList<T> implements Iterable<T> {
             node = node.next;
             return data;
         }
+    }
+
+
+    /**
+     * interlapping()
+     * This static method can check if the two given as parameters lists, overlap.
+     * It returns the first node that they overlapping.
+     * @param list1 = the first list
+     * @param list2 = the second list
+     * @return a reference to the node that the lists are overlapping
+     */
+    protected static MyLinkedList interlapping(MyLinkedList list1, MyLinkedList list2) {
+        Set<MyLinkedList> mySet = new HashSet<>();
+        for (int i = 0; i < list1.getSize(); i++) {
+            mySet.add(list1.getNode(i));
+        }
+        for (int i = 0; i < list1.getSize(); i++) {
+            MyLinkedList temp = list2.getNode(i);
+            if (mySet.contains(temp)) {
+                return temp;
+            }
+        }
+        return null;
     }
 }
 

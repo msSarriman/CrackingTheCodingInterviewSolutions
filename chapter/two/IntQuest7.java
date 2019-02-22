@@ -37,5 +37,7 @@ public class IntQuest7 {
 
         list1.printList();
         list2.printList();
+
+        System.out.println();
     }
 }
