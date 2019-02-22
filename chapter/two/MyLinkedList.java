@@ -6,24 +6,27 @@ import java.util.Stack;
 /**
  * This Class simulates some basic functionalities of a LinkedList.
  * Functions implemented:
- * addNode(T node)
- * getiData(int nodeIndex)
- * getSize()
- * removeNotEdge(int index)
- * getHead()
- * getTail()
- * partitionList(MyLinkedList<T> list)
- * printList()
- * isPalindrome()
- * getNode(int Index)
+ * void addNode(T data)
+ * T getiData(int nodeIndex)
+ * int getSize()
+ * void removeNotEdge(int index)
+ * MyLinkedList<T> getTail()
+ * MyLinkedList<Integer> partitionList(MyLinkedList<Integer> list, int pivotElement)
+ * void printList()
+ * MyLinkedList getHead()
+ * boolean isPalindrome()
+ * MyLinkedList getNode(int index)
+ * void addNodeByReference(Node node)
  *
  * @param <T> . Type can be defined by user.
  */
 class MyLinkedList<T> implements Iterable<T> {
-    MyLinkedList<T> next;
-    T data;
+    private MyLinkedList<T> next;
+    private Node<T> data;
+
 
     MyLinkedList() {
+        this.data = new Node<>();
     }
 
 
@@ -33,35 +36,29 @@ class MyLinkedList<T> implements Iterable<T> {
      * @param data = data of the first node.
      */
     MyLinkedList(T data) {
-        this.data = data;
+        this.data = new Node<>(data);
         this.next = new MyLinkedList<>();
     }
 
 
     /**
+     * addNode
      * Method that adds a node to the MyLinkedList, that contains data
+     *
      *
      * @param data = the data to be contained.
      */
     protected void addNode(T data) {
-        if (this.data == null) {
-            this.data = data;
+        if (this.data.getData() == null) {
+            this.data.setData(data);
             this.next = new MyLinkedList<>();
         } else {
             addNode(data, this.next);
         }
     }
-
-
-    /**
-     * Overloaded method, created for recursion purposes.
-     *
-     * @param data
-     * @param node
-     */
-    protected void addNode(T data, MyLinkedList<T> node) {
-        if (node.data == null) {
-            node.data = data;
+    private void addNode(T data, MyLinkedList<T> node) {
+        if (node.data.getData() == null) {
+            node.data.setData(data);
             node.next = new MyLinkedList<>();
         } else {
             addNode(data, node.next);
@@ -70,6 +67,7 @@ class MyLinkedList<T> implements Iterable<T> {
 
 
     /**
+     * getiData
      * This method returns the data contained in the nodeIndex'th node of the MyLinkedList
      * TimeComplexity = O(N)
      *
@@ -78,24 +76,14 @@ class MyLinkedList<T> implements Iterable<T> {
      * @throws IndexOutOfBoundsException = Can throw out of bounds exception
      */
     protected T getiData(int nodeIndex) throws IndexOutOfBoundsException {
-        if (nodeIndex == 0) return this.data;
+        if (nodeIndex == 0) return this.data.getData();
         else {
             if (this.next != null) return getiData(nodeIndex - 1, this.next);
             else throw new IndexOutOfBoundsException();
         }
     }
-
-
-    /**
-     * Overloaded method built for recursion purposes.
-     *
-     * @param nodeIndex = the index to retrieve the data from
-     * @param node      = the node that is currently being investigated.
-     * @return = returns the data of the i'th node.
-     * @throws IndexOutOfBoundsException = can throw out of bounds exception.
-     */
     private T getiData(int nodeIndex, MyLinkedList<T> node) throws IndexOutOfBoundsException {
-        if (nodeIndex == 0) return node.data;
+        if (nodeIndex == 0) return node.data.getData();
         else {
             if (node.next != null) return getiData(nodeIndex - 1, node.next);
             else throw new IndexOutOfBoundsException();
@@ -104,30 +92,24 @@ class MyLinkedList<T> implements Iterable<T> {
 
 
     /**
+     * getSize()
      * Return the size of the linked list.
      * TimeComplexity = O(N)
      *
      * @return = The size (int) of the MyLinkedList object
      */
     protected int getSize() {
-        if (this.data != null && this.next.data == null) return 1;
+        if (this.data.getData() != null && this.next.data.getData() == null) return 1;
         else return 1 + getSize(this.next);
     }
-
-
-    /**
-     * Method built for recursion purposes
-     *
-     * @param node = the node currently iterating through.
-     * @return = the size of the linked list.
-     */
     private int getSize(MyLinkedList<T> node) {
-        if (node.data == null) return 0;
+        if (node.data.getData() == null) return 0;
         else return 1 + getSize(node.next);
     }
 
 
     /**
+     * removeNotEdge()
      * Method to remove a node from the MyLinkedList, that does not belong at the edges.
      *
      * @param index = the index of the node.
@@ -145,14 +127,6 @@ class MyLinkedList<T> implements Iterable<T> {
         }
         removeNotEdge(--index, this.next);
     }
-
-
-    /**
-     * Overloaded method for recursion purposes.
-     *
-     * @param index = index to remove
-     * @param node  = the current node
-     */
     private void removeNotEdge(int index, MyLinkedList<T> node) {
         if (index - 1 == 0) {
             node.next = node.next.next;
@@ -162,32 +136,25 @@ class MyLinkedList<T> implements Iterable<T> {
     }
 
 
-    /**
-     * Method to return the head of the LinkedList object
-     *
-     * @return the head of the linked list object.
-     */
-    protected MyLinkedList<T> getHead() {
-        return this;
-    }
-
 
     /**
-     * Method with overloaded version, to retrieve the tail.
+     * getTail()
+     * Method to retrieve the tail.
      *
      * @return the tail of the LinkedList.
      */
     protected MyLinkedList<T> getTail() {
-        if (next.data == null) return this;
+        if (next.data.getData() == null) return this;
         else return getTail(this.next);
     }
     private MyLinkedList<T> getTail(MyLinkedList<T> node) {
-        if (node.next.data == null) return this;
+        if (node.next.data.getData() == null) return this;
         else return getTail(node.next);
     }
 
 
     /**
+     * partitionList()
      * This method partitions a given T->Integer list. The partition is taking place based on the @pivotElement.
      * The partition breaks the list into two halves.
      * The first half contains all those numbers of the list, that are smaller than the pivotELement.
@@ -221,6 +188,7 @@ class MyLinkedList<T> implements Iterable<T> {
 
 
     /**
+     * printList()
      * Simple void method that prints all the elements on the list.
      */
     protected void printList() {
@@ -232,6 +200,18 @@ class MyLinkedList<T> implements Iterable<T> {
 
 
     /**
+     * getHead()
+     * Return a reference to the head of the LinkedList;
+     *
+     * @return a Reference to the head of the LinkedList;
+     */
+    protected MyLinkedList getHead() {
+        return this;
+    }
+
+
+    /**
+     * isPalindrome()
      * This method checks if the instance of the LinkedList is a palindrome.
      * TimeComplexity = O(N)
      * SpaceComplexity = O(N+(M/2))
@@ -259,6 +239,7 @@ class MyLinkedList<T> implements Iterable<T> {
 
 
     /**
+     * getNode()
      * This method and its overloaded function, server the purpose of returning a reference to the Node
      * with the index given as parameter to the function
      * TimeComplexity = O(N)
@@ -280,6 +261,20 @@ class MyLinkedList<T> implements Iterable<T> {
 
 
     /**
+     * addNodeByReference()
+     * Adds a note to the LinkedList, by reference to a Node object.
+     *
+     * @param node = a Node object to add to the list
+     */
+    protected void addNodeByReference(Node<T> node) {
+        MyLinkedList tail = getTail().next;
+        tail.data = node;
+        tail.next = new MyLinkedList<>();
+    }
+
+
+    /**
+     * iterator()
      * Method that implements the for each function for the list's elements.
      *
      * @return forEach iterator on the list
@@ -291,6 +286,7 @@ class MyLinkedList<T> implements Iterable<T> {
 
 
     /**
+     * class CustomIterator<T>
      * List's iterator implementation.
      *
      * @param <T>
@@ -304,14 +300,37 @@ class MyLinkedList<T> implements Iterable<T> {
 
         @Override
         public boolean hasNext() {
-            return (node.data != null);
+            return (node.data.getData() != null);
         }
 
         @Override
         public T next() {
-            T data = node.data;
+            T data = node.data.getData();
             node = node.next;
             return data;
         }
+    }
+}
+
+class Node <T> {
+    private T data;
+
+
+    Node(){
+        this.data = null;
+    }
+
+
+    Node(T data) {
+        this.data = data;
+    }
+
+    protected void setData(T data) {
+        this.data = data;
+    }
+
+
+    protected T getData() {
+        return this.data;
     }
 }

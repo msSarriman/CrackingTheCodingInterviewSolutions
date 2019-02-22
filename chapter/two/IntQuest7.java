@@ -20,6 +20,22 @@ package chapter.two;
 public class IntQuest7 {
 
     public static void main(String[] args) {
+        MyLinkedList<Integer> list1 = new MyLinkedList<>();
+        MyLinkedList<Integer> list2 = new MyLinkedList<>();
 
+        list1.addNode(4);
+        list2.addNode(7);
+        list2.addNode(19);
+
+        Node<Integer> node = new Node<>(352);
+        list1.addNodeByReference(node);
+        list2.addNodeByReference(node);
+
+        Node<Integer> node1 = new Node<>(354);
+        list1.addNodeByReference(node1);
+        list2.addNodeByReference(node1);
+
+        list1.printList();
+        list2.printList();
     }
 }

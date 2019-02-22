@@ -62,6 +62,7 @@ public class IntQuest5 {
         for (int i = 0; i < rand.nextInt(6)+1; i++) {
             number2.addNode(rand.nextInt(8)+1);
         }
+
         number1.printList();
         number2.printList();
 
