@@ -1,5 +1,11 @@
 package chapter._3three;
 
+/**
+ * This class implement a simple stack that provides
+ * pop, push, minValue in Time=O(1)
+ *
+ * @param <T>
+ */
 public class MyStack<T> {
     private Node<T> node; // Pointer to the empty top (top+1) of the stack
     private Integer minValue; // constant to min value;
