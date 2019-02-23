@@ -10,7 +10,7 @@ package chapter._3three;
  *
  * @param <T> the type of the array's elements.
  */
-public class ThreeStacks<T> {
+public class IntQuest1_ThreeStacks<T> {
     T[] myArray;        // The array to include the 3 stacks into.
     int[] nextIndex;    // A 3 cell array. Each array will constantly contain the next available index of the corresponding stack.
 
@@ -20,7 +20,7 @@ public class ThreeStacks<T> {
      *
      * @param size
      */
-    public ThreeStacks(int size) {
+    public IntQuest1_ThreeStacks(int size) {
         this.myArray = (T[]) new Object[size * 3];
         this.nextIndex = new int[]{0, 1, 2};
     }

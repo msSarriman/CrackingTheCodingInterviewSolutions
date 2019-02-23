@@ -15,7 +15,7 @@ package chapter._3three;
 
 public class IntQuest1 {
     public static void main(String[] args) {
-        ThreeStacks<Integer> myStacks = new ThreeStacks<>(10);
+        IntQuest1_ThreeStacks<Integer> myStacks = new IntQuest1_ThreeStacks<>(10);
 
         myStacks.push(1, 1);
         myStacks.push(2, 1);

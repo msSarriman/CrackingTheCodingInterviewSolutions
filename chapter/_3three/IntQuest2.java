@@ -14,7 +14,7 @@ package chapter._3three;
 
 public class IntQuest2 {
     public static void main(String[] args) {
-        MyStack<Integer> myStack = new MyStack<>();
+        IntQuest2_MyStack<Integer> myStack = new IntQuest2_MyStack<>();
 
         myStack.push(5);
         myStack.push(6);

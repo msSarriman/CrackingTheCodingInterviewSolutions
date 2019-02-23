@@ -6,7 +6,7 @@ package chapter._3three;
  *
  * @param <T>
  */
-public class MyStack<T> {
+public class IntQuest2_MyStack<T> {
     private Node<T> node; // Pointer to the empty top (top+1) of the stack
     private Integer minValue; // constant to min value;
 
@@ -14,7 +14,7 @@ public class MyStack<T> {
     /**
      * Constructor to create the stack
      */
-    MyStack() {
+    IntQuest2_MyStack() {
         this.node = new Node<>();
         this.minValue = null;
     }
