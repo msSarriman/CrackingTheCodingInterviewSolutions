@@ -32,5 +32,17 @@ public class IntQuest2 {
         System.out.println("pop:" + myStack.pop());
         System.out.println("pop:" + myStack.pop());
         System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
+        System.out.println("pop:" + myStack.pop());
     }
 }

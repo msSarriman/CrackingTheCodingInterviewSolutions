@@ -72,8 +72,9 @@ public class IntQuest2_MyStack<T> {
      * @return T
      */
     protected T pop() {
-        if (this.node.getBefore() == null)
-            System.out.println("The stack is empty");
+        if (this.node.getBefore() == null) { // The stack is empty
+            return null;
+        }
         T valueToReturn = this.node.getBefore().getValue();
         if (this.node.getBefore().getBefore() != null) {
             this.node.getBefore().getBefore().setNext(this.node);
@@ -86,55 +87,3 @@ public class IntQuest2_MyStack<T> {
 }
 
 
-/**
- * @param <T>
- */
-class Node<T> {
-    private T value;
-    private Node<T> next;
-    private Node<T> before;
-
-    Node() {
-        this.value = null;
-        this.next = null;
-        this.before = null;
-    }
-
-
-    private Node(Node<T> before) {
-        this.value = null;
-        this.next = new Node<>();
-        this.before = before;
-    }
-
-
-    protected T getValue() {
-        return this.value;
-    }
-
-
-    protected void setValue(T value) {
-        this.value = value;
-        this.next = new Node<>(this);
-    }
-
-
-    protected Node<T> getBefore() {
-        return this.before;
-    }
-
-
-    protected void setBefore(Node<T> before) {
-        this.before = before;
-    }
-
-
-    protected Node<T> getNext() {
-        return this.next;
-    }
-
-
-    protected void setNext(Node<T> next) {
-        this.next = next;
-    }
-}
