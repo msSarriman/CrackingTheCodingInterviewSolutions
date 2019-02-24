@@ -2,7 +2,10 @@ package chapter._3three;
 
 /**
  * This class implement a simple stack that provides
- * pop, push, minValue in Time=O(1)
+ * pop, push, minValue,  in Time=O(1)
+ *
+ * FOLLOW UP
+ * IntQuest5: isEmpty, peek;
  *
  * @param <T>
  */
@@ -83,6 +86,31 @@ public class IntQuest2_MyStack<T> {
             this.node.setBefore(null);
         }
         return valueToReturn;
+    }
+
+
+    /**
+     * peek()
+     * This method returns the top element of the Stack, without deleting it.
+     *
+     * @return = the top element of the stack
+     */
+    protected T peek() {
+        if (this.node.getBefore() == null) { // The stack is empty
+            return null;
+        }
+        return this.node.getBefore().getValue();
+    }
+
+
+    /**
+     * isEmpty()
+     * This method return a boolean value regarding on if the stack is empty.
+     *
+     * @return true|false
+     */
+    protected boolean isEmpty() {
+        return peek() == null;
     }
 }
 
