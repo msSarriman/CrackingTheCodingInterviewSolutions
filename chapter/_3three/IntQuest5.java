@@ -36,7 +36,7 @@ public class IntQuest5 {
                 tempStack.push(myStack.pop());
             } else {
                 tempValue = myStack.pop();
-                while(true) {
+                while (true) {
                     Integer currentTop = tempStack.peek();
                     if (tempStack.isEmpty()) {
                         tempStack.push(tempValue);

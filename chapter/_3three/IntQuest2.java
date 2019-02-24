@@ -8,7 +8,6 @@
  * easier to solve the problem?
  * - Consider having each node know the minimum of its "substack" (all the elements
  * beneath it, including itself)
- *
  */
 package chapter._3three;
 

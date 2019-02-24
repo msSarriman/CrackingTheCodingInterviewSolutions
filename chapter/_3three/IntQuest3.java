@@ -1,4 +1,5 @@
 package chapter._3three;
+
 /**
  * Stack of Plates: Imagine a (literal) stack of plates. If the stack gets too high, it might topple.
  * Therefore, in real life, we would likely start a new stack when the previous stack exceeds some
@@ -71,7 +72,7 @@ public class IntQuest3 {
 
 
         /* popAt() is faulty
-        * Hint: currentStackTop not getting updated at pop() ?*/
+         * Hint: currentStackTop not getting updated at pop() ?*/
         System.out.println("popAt(): " + mySetOfStacks.popAt(1)); //1
         System.out.println("popAt(): " + mySetOfStacks.popAt(2)); //null
         System.out.println("popAt(): " + mySetOfStacks.popAt(3)); //null

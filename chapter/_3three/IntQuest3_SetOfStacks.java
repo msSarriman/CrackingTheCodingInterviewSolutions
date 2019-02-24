@@ -5,7 +5,7 @@ public class IntQuest3_SetOfStacks<T> {
     protected IntQuest3_SetOfStacks<T> previous;
     protected Node<T> node;
     protected int threshold;
-    protected int currentSize=0;
+    protected int currentSize = 0;
     protected Node<T> currentStackTop;
     /**
      * protected IntQuest3_SetOfStacks<T> currentActive;
@@ -32,8 +32,8 @@ public class IntQuest3_SetOfStacks<T> {
      * Constructor to create the inner stacks of the stack.
      *
      * @param threshold = the threshold
-     * @param node = a pointer to the previous "element" of the stack. (To the previous plate that got washed!!)
-     * @param previous = o pointer to the previous inner stack
+     * @param node      = a pointer to the previous "element" of the stack. (To the previous plate that got washed!!)
+     * @param previous  = o pointer to the previous inner stack
      */
     private IntQuest3_SetOfStacks(int threshold, Node<T> node, IntQuest3_SetOfStacks<T> previous) {
         this.next = null;
@@ -98,7 +98,7 @@ public class IntQuest3_SetOfStacks<T> {
 
     /**
      * This method pops the top element of the i-th inner stack.
-     *
+     * <p>
      * popAt() is faulty
      * Hint: currentStackTop not getting updated at pop()? It always return the stacks max history
      * Hint: next stack references are never deleted as intended at line 91

@@ -82,7 +82,7 @@ class MyQueue<T> {
 
 
     protected void oldToNew() {
-        if (!newStack.empty()){
+        if (!newStack.empty()) {
             while (!oldStack.empty()) {
                 newStack.push(oldStack.pop());
             }

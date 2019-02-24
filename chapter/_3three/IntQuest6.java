@@ -39,7 +39,7 @@ public class IntQuest6 {
          * enqueue()
          * Adds an animal to the corresponding list.
          *
-         * @param type = the type of the animal
+         * @param type   = the type of the animal
          * @param animal = the animal
          */
         protected void enqueue(String type, T animal) {
@@ -66,7 +66,7 @@ public class IntQuest6 {
             if (dogOrCat == 0 && !dogs.isEmpty()) {
                 animalToReturn = dogs.getFirst();
                 dogs.remove();
-            } else if (!cats.isEmpty()){
+            } else if (!cats.isEmpty()) {
                 animalToReturn = cats.getFirst();
                 cats.remove();
             }
