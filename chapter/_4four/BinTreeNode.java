@@ -1,7 +1,5 @@
 package chapter._4four;
 
-import java.util.HashSet;
-import java.util.LinkedList;
 
 /**
  * Node class for Binary Trees
@@ -106,72 +104,6 @@ public class BinTreeNode<T>{
     }
 
 
-//    /**
-//     * getHeight()
-//     * This method return the height of the tree.
-//     * As height is defined the number of the arcs at the biggest path of the tree from the root to the leaves,
-//     * and not the number of the nodes.
-//     *
-//     * @param node = the root of the tree.
-//     * @return = the height of the tree.
-//     */
-//    protected static int getHeight(BinTreeNode node) {
-//        int leftSubTreeHeight = 0;
-//        int rightSubTreeHeight = 0;
-//        if (node.left != null) {
-//            leftSubTreeHeight += getHeight(node.left) + 1;
-//        }
-//        if (node.right != null) {
-//            rightSubTreeHeight += getHeight(node.right) + 1;
-//        }
-//        return leftSubTreeHeight > rightSubTreeHeight ? leftSubTreeHeight : rightSubTreeHeight;
-//    }
-//
-//
-//    /**
-//     * getNodeHeight()
-//     * This method returns the height of the given Node
-//     *
-//     * @param node = node to search for its height.
-//     * @return = the height of the node.
-//     */
-//    private int getNodeHeight(BinTreeNode node) {
-//        return getNodeHeight(this, node);
-//    }
-//    private int getNodeHeight(BinTreeNode<T> source, BinTreeNode<T> destination) {
-//        if (source == destination) {
-//            return 0;
-//        }
-//        if ((Integer)destination.data > (Integer)source.data) {
-//            return getNodeHeight(source.right, destination) + 1;
-//        } else {
-//            return getNodeHeight(source.left, destination) + 1;
-//        }
-//    }
-//
-//
-//    /**
-//     * getDataHeight()
-//     * This method returns the height of the given data.
-//     *
-//     * @param data = data to search for its height.
-//     * @return = the height of the data.
-//     */
-//    private int getDataHeight(T data) {
-//        BinTreeNode index = this;
-//        int height = 0;
-//        while (index != null && (Integer)index.data != (Integer)data) {
-//            if ((Integer)index.data > (Integer)data) {
-//                index = index.left;
-//            } else {
-//                index = index.right;
-//            }
-//            height++;
-//        }
-//        return index == null ? Integer.MIN_VALUE : height;
-//    }
-
-
     /**
      * add()
      * This method adds a value to the Binary Tree
@@ -239,3 +171,68 @@ public class BinTreeNode<T>{
         return a.compareTo(b) > 0;
     }
 }
+//     The following methods, apply on BST.
+//    /**
+//     * getHeight()
+//     * This method return the height of the tree.
+//     * As height is defined the number of the arcs at the biggest path of the tree from the root to the leaves,
+//     * and not the number of the nodes.
+//     *
+//     * @param node = the root of the tree.
+//     * @return = the height of the tree.
+//     */
+//    protected static int getHeight(BinTreeNode node) {
+//        int leftSubTreeHeight = 0;
+//        int rightSubTreeHeight = 0;
+//        if (node.left != null) {
+//            leftSubTreeHeight += getHeight(node.left) + 1;
+//        }
+//        if (node.right != null) {
+//            rightSubTreeHeight += getHeight(node.right) + 1;
+//        }
+//        return leftSubTreeHeight > rightSubTreeHeight ? leftSubTreeHeight : rightSubTreeHeight;
+//    }
+//
+//
+//    /**
+//     * getNodeHeight()
+//     * This method returns the height of the given Node
+//     *
+//     * @param node = node to search for its height.
+//     * @return = the height of the node.
+//     */
+//    private int getNodeHeight(BinTreeNode node) {
+//        return getNodeHeight(this, node);
+//    }
+//    private int getNodeHeight(BinTreeNode<T> source, BinTreeNode<T> destination) {
+//        if (source == destination) {
+//            return 0;
+//        }
+//        if ((Integer)destination.data > (Integer)source.data) {
+//            return getNodeHeight(source.right, destination) + 1;
+//        } else {
+//            return getNodeHeight(source.left, destination) + 1;
+//        }
+//    }
+//
+//
+//    /**
+//     * getDataHeight()
+//     * This method returns the height of the given data.
+//     *
+//     * @param data = data to search for its height.
+//     * @return = the height of the data.
+//     */
+//    private int getDataHeight(T data) {
+//        BinTreeNode index = this;
+//        int height = 0;
+//        while (index != null && (Integer)index.data != (Integer)data) {
+//            if ((Integer)index.data > (Integer)data) {
+//                index = index.left;
+//            } else {
+//                index = index.right;
+//            }
+//            height++;
+//        }
+//        return index == null ? Integer.MIN_VALUE : height;
+//    }
