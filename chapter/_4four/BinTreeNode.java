@@ -1,23 +1,44 @@
 package chapter._4four;
 
+import java.util.HashSet;
+import java.util.LinkedList;
+
 /**
  * Node class for Binary Trees
  * 
  * @param <T>
  */
-public class BinTreeNode<T> {
+public class BinTreeNode<T>{
     T data;
     BinTreeNode<T> left;
     BinTreeNode<T> right;
+    BinTreeNode<T> father;
+    int height;
 
 
     /**
      * Default Constructor for BinTreeNode()
+     * Used to create the root
      */
     BinTreeNode() {
         this.data = null;
         this.left = null;
         this.right = null;
+        this.father = null;
+        this.height = 0;
+    }
+
+
+    /**
+     * Constructor to assign the father
+     * used to create nodes!=root
+     */
+    BinTreeNode(BinTreeNode father) {
+        this.data = null;
+        this.left = null;
+        this.right = null;
+        this.father = father;
+        this.height = father.height + 1;
     }
 
 
@@ -28,8 +49,9 @@ public class BinTreeNode<T> {
      */
     BinTreeNode(T data) {
         this.data = data;
-        this.left = new BinTreeNode<>();
-        this.right = new BinTreeNode<>();
+        this.left = new BinTreeNode<>(this);
+        this.right = new BinTreeNode<>(this);
+        this.father = null;
     }
 
 
@@ -104,6 +126,81 @@ public class BinTreeNode<T> {
 
 
     /**
+     * getNodeHeight()
+     * This method returns the height of the given Node
+     *
+     * @param node = node to search for its height.
+     * @return = the height of the node.
+     */
+    private int getNodeHeight(BinTreeNode node) {
+        return getNodeHeight(this, node);
+    }
+    private int getNodeHeight(BinTreeNode<T> source, BinTreeNode<T> destination) {
+        if (source == destination) {
+            return 0;
+        }
+        if ((Integer)destination.data > (Integer)source.data) {
+            return getNodeHeight(source.right, destination) + 1;
+        } else {
+            return getNodeHeight(source.left, destination) + 1;
+        }
+    }
+
+
+    /**
+     * getDataHeight()
+     * This method returns the height of the given data.
+     *
+     * @param data = data to search for its height.
+     * @return = the height of the data.
+     */
+    private int getDataHeight(T data) {
+        BinTreeNode index = this;
+        int height = 0;
+        while (index != null && (Integer)index.data != (Integer)data) {
+            if ((Integer)index.data > (Integer)data) {
+                index = index.left;
+            } else {
+                index = index.right;
+            }
+            height++;
+        }
+        return index == null ? Integer.MIN_VALUE : height;
+    }
+
+
+    /**
+     * add()
+     * This method adds a value to the Binary Tree
+     *
+     * @param value = The value to be added to the tree
+     */
+    protected void add(T value) {
+        BinTreeNode node = findNode(value, this);
+        node.data = value;
+        node.left = new BinTreeNode<>(node);
+        node.right = new BinTreeNode<>(node);
+    }
+
+
+    /**
+     * findNode()
+     * Return a reference to a node, that the @value will be inserted
+     *
+     * @param value = the value to add
+     * @param index = the root of the tree
+     * @return = a reference to an empty node
+     */
+    private BinTreeNode findNode(T value, BinTreeNode index) {
+        if (index.data == null) {
+            return index;
+        }
+        BinTreeNode next = ((Integer) index.data > (Integer) value) ? index.left : index.right;
+        return findNode(value, next);
+    }
+
+
+    /**
      * getLeft()
      * getter for this.left
      *
@@ -122,5 +219,20 @@ public class BinTreeNode<T> {
      */
     public BinTreeNode<T> getRight() {
         return right;
+    }
+
+
+    /**
+     * isBigger()
+     * This method compares two generic objects to find which one is bigger,
+     * depending that their classes implement the compareTo() method.
+     *
+     * @param a = first object
+     * @param b = second object
+     * @param <T> = the type of the objects
+     * @return = true|false
+     */
+    protected static <T extends Comparable<T>> boolean isBigger(T a, T b) {
+        return a.compareTo(b) > 0;
     }
 }

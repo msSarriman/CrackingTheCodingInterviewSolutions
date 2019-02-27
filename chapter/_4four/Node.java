@@ -61,7 +61,7 @@ public class Node<T> {
      * @param visited = the visited nodes
      * @return = true|false
      */
-    protected boolean findPathDFS(Node<T> source, Node<T> destination, HashSet<Node> visited) {
+    protected static <T> boolean findPathDFS(Node<T> source, Node<T> destination, HashSet<Node> visited) {
         if (source == destination) {
             return true;
         }
@@ -90,7 +90,7 @@ public class Node<T> {
      * @param destination = the destination node
      * @return = true|false
      */
-    protected boolean findPathBFS(Node<T> source, Node<T> destination) {
+    protected static <T> boolean findPathBFS(Node<T> source, Node<T> destination) {
         if (source == destination) {
             return true;
         }

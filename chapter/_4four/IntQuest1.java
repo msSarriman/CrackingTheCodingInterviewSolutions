@@ -8,11 +8,14 @@ package chapter._4four;
 
 import java.util.HashSet;
 
+import static chapter._4four.Node.findPathDFS;
+import static chapter._4four.Node.findPathBFS;
+
 public class IntQuest1 {
 
 
     /**
-     * A wrapping class for the nodes of the graph created from the Class Node.
+     * A wrapping class for the nodes of the graph created from the Class
      * @param <T>
      */
     static class Graph<T> extends Node<T> {
@@ -71,20 +74,20 @@ public class IntQuest1 {
         HashSet<Node> visited = new HashSet<>();
 
         /* DFS results */
-        System.out.println(graph.findPathDFS(node1, node1, visited)); visited.clear();  // true
-        System.out.println(graph.findPathDFS(node1, node6, visited)); visited.clear();  // true
-        System.out.println(graph.findPathDFS(node9, node4, visited)); visited.clear();  // false
-        System.out.println(graph.findPathDFS(node3, node4, visited)); visited.clear();  // false
-        System.out.println(graph.findPathDFS(node3, node8, visited)); visited.clear();  // true
+        System.out.println(findPathDFS(node1, node1, visited)); visited.clear();  // true
+        System.out.println(findPathDFS(node1, node6, visited)); visited.clear();  // true
+        System.out.println(findPathDFS(node9, node4, visited)); visited.clear();  // false
+        System.out.println(findPathDFS(node3, node4, visited)); visited.clear();  // false
+        System.out.println(findPathDFS(node3, node8, visited)); visited.clear();  // true
 
         System.out.println();
 
         /* BFS results */
-        System.out.println(graph.findPathBFS(node1, node1));  // true
-        System.out.println(graph.findPathBFS(node1, node6));  // true
-        System.out.println(graph.findPathBFS(node9, node4));  // false
-        System.out.println(graph.findPathBFS(node3, node4));  // false
-        System.out.println(graph.findPathBFS(node3, node8));  // true
+        System.out.println(findPathBFS(node1, node1));  // true
+        System.out.println(findPathBFS(node1, node6));  // true
+        System.out.println(findPathBFS(node9, node4));  // false
+        System.out.println(findPathBFS(node3, node4));  // false
+        System.out.println(findPathBFS(node3, node8));  // true
 
     }
 }
