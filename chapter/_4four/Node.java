@@ -3,7 +3,11 @@ package chapter._4four;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-
+/**
+ * Node class for graphs or K-Trees
+ *
+ * @param <T>
+ */
 public class Node<T> {
     T data;
     private LinkedList<Node<T>> myChilds;
