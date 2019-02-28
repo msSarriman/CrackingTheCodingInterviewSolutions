@@ -171,6 +171,8 @@ public class BinTreeNode<T>{
         return a.compareTo(b) > 0;
     }
 }
+
+
 //     The following methods, apply on BST.
 //    /**
 //     * getHeight()
