@@ -159,7 +159,7 @@ public class BinTreeNode<T>{
 
     /**
      * getHeight()
-     * This method return the height of the tree.
+     * This method returns the height of the tree with root @node.
      * As height is defined the number of the arcs at the biggest path of the tree from the root to the leaves,
      * and not the number of the nodes.
      *
