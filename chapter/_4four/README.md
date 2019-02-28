@@ -12,6 +12,9 @@ Chapter 4, problems:
      this question, a balanced tree is defined to be a tree such that the heights of the two subtrees of any
      node never differ by more than one.
 * 5: Validate BST: Implement a function to check if a binary tree is a binary search tree.
+* 6: Successor: Write an algorithm to find the "next" node (i.e., in-order successor) of a given node in a
+     binary search tree. You may assume that each node has a link to its parent.
+* 7: coming next...
 
 # License
 
