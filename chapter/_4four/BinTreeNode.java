@@ -240,5 +240,17 @@ public class BinTreeNode<T>{
     protected static <T extends Comparable<T>> boolean isBigger(T a, T b) {
         return a.compareTo(b) > 0;
     }
+
+
+    /**
+     * toString()
+     * Overided default object output.
+     *
+     * @return String
+     */
+    @Override
+    public String toString() {
+        return "Current node holds data " + this.data;
+    }
 }
 
