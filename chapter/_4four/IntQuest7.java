@@ -28,77 +28,33 @@
  */
 package chapter._4four;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
-
+import static chapter._4four.TopologicalSort.topologicalSort;
 public class IntQuest7 {
+    static class Graph {
+        LinkedList<Node<Integer>> startNodes;
 
-    /**
-     * createProjectOrder()
-     * This method returns an ArrayList that persists of a sequence that corresponds to the correct order of the
-     * @projects.
-     * It accomplishes the above in the following way:
-     * - Creates a HashMap (depenProjects) that contains as a key a project, and as it's value, a LinkedList of the
-     * projects that are dependant by that project.
-     * - Creates a HashSet (standAloneProjects) that contains only these projects that do not have any dependencies and
-     * can start as is.
-     * - for each (project in standAloneProjects), run a BFS-like exploration, using a queue, of all the other projects,
-     * by iterating through the values of the corresponding keys of the above HashMap. Always through the iteration, add
-     * a project onto the orderToReturn list.
-     * Finally, if any projects left unexplored (projects.length != return.size(), return null, or return the created list.
-     *
-     * @param projects
-     * @param dependencies
-     * @return
-     */
-    public ArrayList createProjectOrder(int[] projects, int[][] dependencies) {
-        HashSet<Integer> standAloneProjects = new HashSet<>();
-        HashMap<Integer, LinkedList<Integer>> depenProjects  = new HashMap<>();
-        ArrayList<Integer> orderToReturn = new ArrayList<>(projects.length);
+        Graph() {
+            startNodes = new LinkedList<>();
+        }
 
-        for (int i : projects) {
-            standAloneProjects.add(i);
+
+        public void addStartNode(Node<Integer> node) {
+            startNodes.add(node);
         }
-        for (int[] i : dependencies) {
-            standAloneProjects.remove(i[1]);
-            if (depenProjects.containsKey(i[0])) {
-                depenProjects.get(i[0]).add(i[1]);
-            } else {
-                depenProjects.put(i[0], new LinkedList<>());
-                depenProjects.get(i[0]).add(i[1]);
-            }
+
+        public LinkedList createProjectOrder(int[] projects, int[][] dependencies) {
+            return topologicalSort(this, projects, dependencies);
         }
-        if (standAloneProjects.size() == 0) { // If there are ONLY dependencies, return null.
-            return null;
-        }
-        for (Integer i : standAloneProjects) {
-            if (depenProjects.containsKey(i)) {
-                orderToReturn.add(i);
-                LinkedList<Integer> myQueue = new LinkedList<>(depenProjects.get(i));
-                while (!myQueue.isEmpty()) {
-                    int current = myQueue.remove();
-                    if (!orderToReturn.contains(current)) {
-                        orderToReturn.add(current);
-                        if (depenProjects.containsKey(current)) {
-                            myQueue.addAll(depenProjects.get(current));
-                        }
-                    }
-                }
-            } else {
-                orderToReturn.add(i);
-            }
-        }
-        return (orderToReturn.size() == projects.length ? orderToReturn : null);
     }
+
 
 
     public static void main(String[] args) {
         int[] projects = new int[]{1,2,3,4,5,6};
         int[][] dependencies = new int[][]{{1,4},{2,4},{6,1},{6,2},{2,3}};
 
-        IntQuest7 obj = new IntQuest7();
+        Graph obj = new Graph();
         System.out.println(obj.createProjectOrder(projects, dependencies)); //valid
 
         projects = new int[]{1,2,3,4,5,6,7,8,9};
