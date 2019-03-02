@@ -57,7 +57,7 @@ public class Util_BinTreeNode<T>{
 
 
     /**
-     * Constructor to create a Util_BinTreeNode with data;
+     * Constructor to create a Util_BinTreeNode with data and father;
      *
      * @param data = the data to be contained.
      */
