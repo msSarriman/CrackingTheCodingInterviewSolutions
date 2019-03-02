@@ -37,6 +37,7 @@ Chapter 4, problems:
                  /      \
                 \/      \/
                Node1   Node3
+               
      Output: {2, 1, 3}, {2, 3, 1}
 * 10: _coming next..._
 
