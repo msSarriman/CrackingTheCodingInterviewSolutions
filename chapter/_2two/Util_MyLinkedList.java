@@ -15,7 +15,7 @@ import java.util.*;
  * MyLinkedList getHead()
  * boolean isPalindrome()
  * MyLinkedList getNode(int index)
- * void addNodeByReference(Node node)
+ * void addNodeByReference(Util_Node node)
  *
  * @param <T> . Type can be defined by user.
  */
@@ -242,7 +242,7 @@ class MyLinkedList<T> implements Iterable<T> {
 
     /**
      * getNode()
-     * This method and its overloaded function, server the purpose of returning a reference to the Node
+     * This method and its overloaded function, server the purpose of returning a reference to the Util_Node
      * with the index given as parameter to the function
      * TimeComplexity = O(N)
      *
@@ -265,9 +265,9 @@ class MyLinkedList<T> implements Iterable<T> {
 
     /**
      * addNodeByReference()
-     * Adds a note to the LinkedList, by reference to a Node object.
+     * Adds a note to the LinkedList, by reference to a Util_Node object.
      *
-     * @param node = a Node object to add to the list
+     * @param node = a Util_Node object to add to the list
      */
     protected void addNodeByReference(Node<T> node) {
         MyLinkedList lastNull = getTail().next;

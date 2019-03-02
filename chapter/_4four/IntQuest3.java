@@ -26,12 +26,12 @@ public class IntQuest3<T> {
      *
      * @param node = the root of the tree.
      */
-    public void bfsAddUp(BinTreeNode<T> node) {
-        BinTreeNode<T> root = node;
-        LinkedList<BinTreeNode<T>> myQueue = new LinkedList<BinTreeNode<T>>();
+    public void bfsAddUp(Util_BinTreeNode<T> node) {
+        Util_BinTreeNode<T> root = node;
+        LinkedList<Util_BinTreeNode<T>> myQueue = new LinkedList<Util_BinTreeNode<T>>();
         myQueue.add(node);
         while (!myQueue.isEmpty()) {
-            BinTreeNode<T> index = myQueue.remove();
+            Util_BinTreeNode<T> index = myQueue.remove();
             if (index.left != null && index.left.data != null) {
                 myQueue.add(index.left);
             }
@@ -66,7 +66,7 @@ public class IntQuest3<T> {
 
     public static void main(String[] args) {
 
-        BinTreeNode<Integer> root = new BinTreeNode<>();
+        Util_BinTreeNode<Integer> root = new Util_BinTreeNode<>();
         /* Binary tree to be created:
          *                  8
          *          4               16

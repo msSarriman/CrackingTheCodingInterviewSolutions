@@ -8,8 +8,8 @@ package chapter._4four;
 
 import java.util.HashSet;
 
-import static chapter._4four.Node.findPathDFS;
-import static chapter._4four.Node.findPathBFS;
+import static chapter._4four.Util_Node.findPathDFS;
+import static chapter._4four.Util_Node.findPathBFS;
 
 public class IntQuest1 {
 
@@ -18,10 +18,10 @@ public class IntQuest1 {
      * A wrapping class for the nodes of the graph created from the Class
      * @param <T>
      */
-    static class Graph<T> extends Node<T> {
-        Node<T> root;
+    static class Graph<T> extends Util_Node<T> {
+        Util_Node<T> root;
 
-        Graph(Node<T> root) {
+        Graph(Util_Node<T> root) {
             this.root = root;
         }
     }
@@ -51,15 +51,15 @@ public class IntQuest1 {
      * @param args
      */
     public static void main(String[] args) {
-        Node<Integer> node1 = new Node<>(1);
-        Node<Integer> node2 = new Node<>(2);
-        Node<Integer> node3 = new Node<>(3);
-        Node<Integer> node4 = new Node<>(4);
-        Node<Integer> node5 = new Node<>(5);
-        Node<Integer> node6 = new Node<>(6);
-        Node<Integer> node7 = new Node<>(7);
-        Node<Integer> node8 = new Node<>(8);
-        Node<Integer> node9 = new Node<>(9);
+        Util_Node<Integer> node1 = new Util_Node<>(1);
+        Util_Node<Integer> node2 = new Util_Node<>(2);
+        Util_Node<Integer> node3 = new Util_Node<>(3);
+        Util_Node<Integer> node4 = new Util_Node<>(4);
+        Util_Node<Integer> node5 = new Util_Node<>(5);
+        Util_Node<Integer> node6 = new Util_Node<>(6);
+        Util_Node<Integer> node7 = new Util_Node<>(7);
+        Util_Node<Integer> node8 = new Util_Node<>(8);
+        Util_Node<Integer> node9 = new Util_Node<>(9);
 
         node1.addChild(node3); node1.addChild(node4); node1.addChild(node9);
         node2.addChild(node1); node2.addChild(node3); node2.addChild(node8);
@@ -71,7 +71,7 @@ public class IntQuest1 {
         node8.addChild(node7);
 
         Graph<Integer> graph = new Graph<>(node1);
-        HashSet<Node> visited = new HashSet<>();
+        HashSet<Util_Node> visited = new HashSet<>();
 
         /* DFS results */
         System.out.println(findPathDFS(node1, node1, visited)); visited.clear();  // true

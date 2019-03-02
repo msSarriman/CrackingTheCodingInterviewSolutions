@@ -15,15 +15,15 @@
 package chapter._4four;
 
 import java.util.Arrays;
-import static chapter._4four.BinTreeNode.printInOrder;
+import static chapter._4four.Util_BinTreeNode.printInOrder;
 
 class IntQuest2 {
 
-    public static BinTreeNode<Integer> createMinimalBST(int[] array, BinTreeNode<Integer> node) {
+    public static Util_BinTreeNode<Integer> createMinimalBST(int[] array, Util_BinTreeNode<Integer> node) {
         if (node == null || array.length == 0){
             return null;
         }
-        node = new BinTreeNode<>(array[array.length / 2]);
+        node = new Util_BinTreeNode<>(array[array.length / 2]);
         node.left = createMinimalBST(Arrays.copyOfRange(array, 0, array.length / 2)
                 , node.getLeft());
         node.right = createMinimalBST(Arrays.copyOfRange(array, array.length / 2 + 1, array.length)
@@ -34,7 +34,7 @@ class IntQuest2 {
 
     public static void main(String[] args) {
         int[] array = new int[]{1,2,3,4,5,6,7,8,9,18,14,27};
-        BinTreeNode<Integer> root = createMinimalBST(array, new BinTreeNode<>());
+        Util_BinTreeNode<Integer> root = createMinimalBST(array, new Util_BinTreeNode<>());
         printInOrder(root);
     }
 }

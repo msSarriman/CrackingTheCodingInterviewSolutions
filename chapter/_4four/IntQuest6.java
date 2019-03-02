@@ -17,9 +17,9 @@ public class IntQuest6 {
      * after the @node.
      *
      * @param node = the node that defines the next in-order node.
-     * @return = null|BinTreeNode
+     * @return = null|Util_BinTreeNode
      */
-    public static BinTreeNode nextNodeInOrder(BinTreeNode node) {
+    public static Util_BinTreeNode nextNodeInOrder(Util_BinTreeNode node) {
         if (node == null) return null;
         if (node.right != null && node.right.data != null) {
             return getLeftmostNode(node.right);
@@ -45,7 +45,7 @@ public class IntQuest6 {
      * @param node
      * @return
      */
-    public static BinTreeNode getLeftmostNode(BinTreeNode node) {
+    public static Util_BinTreeNode getLeftmostNode(Util_BinTreeNode node) {
         if (node.left != null && node.left.data != null) {
             return getLeftmostNode(node.left);
         }
@@ -60,7 +60,7 @@ public class IntQuest6 {
          *      2       6       11      20
          *    1   3   5   7   10   12 19   21
          * */
-        BinTreeNode<Integer> root = new BinTreeNode<>();
+        Util_BinTreeNode<Integer> root = new Util_BinTreeNode<>();
         root.add(8);
         root.add(4);        root.add(16);
         root.add(2);        root.add(6);        root.add(11);       root.add(20);

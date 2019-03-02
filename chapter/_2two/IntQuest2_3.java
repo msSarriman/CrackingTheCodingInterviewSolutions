@@ -14,7 +14,7 @@
  * - We're probably going to run this algorithm many times. If we did more preprocessing, is
  * there a way we could optimize this?
  * 3)
- * Delete Middle Node: Implement an algorithm to delete a node in the middle (i.e., any node but
+ * Delete Middle Util_Node: Implement an algorithm to delete a node in the middle (i.e., any node but
  * the first and last node, not necessarily the exact middle) of a singly linked list, given only access to
  * that node.
  * EXAMPLE

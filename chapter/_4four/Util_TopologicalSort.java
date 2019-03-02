@@ -8,13 +8,13 @@ import java.util.*;
  * Projects are injected as nodes into @graph
  * Dependencies act like vertices in the @graph.
  */
-public class TopologicalSort {
-    static HashSet<Node> visited; // The visited nodes of each algorithm's execution.
+public class Util_TopologicalSort {
+    static HashSet<Util_Node> visited; // The visited nodes of each algorithm's execution.
 
 
     /**
      * tiologicalSort()
-     * This method performs the algorithm on the given Graph. It also creates the required Graph which is empty by the
+     * This method performs the algorithm on the given Util_Graph. It also creates the required Util_Graph which is empty by the
      * time.
      *
      * @param graph = The initiated graph. To be populated.
@@ -22,14 +22,14 @@ public class TopologicalSort {
      * @param dependencies = The vertices of the graph.
      * @return = LinkedList|null
      */
-    static LinkedList topologicalSort(Graph graph, int[] projects, int[][] dependencies) {
+    static LinkedList topologicalSort(Util_Graph graph, int[] projects, int[][] dependencies) {
         LinkedList<Integer> myList = new LinkedList<>();
         visited = new HashSet<>();
         createGraph(graph, projects, dependencies);
         if (graph.startNodes.size() == 0) {
             return null;
         }
-        for (Node<Integer> node : graph.startNodes) {
+        for (Util_Node<Integer> node : graph.startNodes) {
             if (node.getMyChilds().size() == 0) {
                 myList.add(0, node.data);
             } else {
@@ -50,13 +50,13 @@ public class TopologicalSort {
      * @param node = the node to run DFS to.
      * @param order = the order of the appeared items.
      */
-    private static void getDfsOrder(Node<Integer> node, Stack<Integer> order) {
+    private static void getDfsOrder(Util_Node<Integer> node, Stack<Integer> order) {
         if (visited.contains(node)) {
             return;
         }
         visited.add(node);
         int counter = 0;
-        for (Node<Integer> child : node.getMyChilds()) {
+        for (Util_Node<Integer> child : node.getMyChilds()) {
             getDfsOrder(child, /*visited,*/ order);
             if (visited.contains(child)) {
                 counter ++;
@@ -72,14 +72,14 @@ public class TopologicalSort {
      * createGraph()
      * This method creates the graph with @project nodes, and @dependencies arcs.
      *
-     * @param graph = the Graph to be created
+     * @param graph = the Util_Graph to be created
      * @param projects =
      * @param dependencies
      */
-    private static void createGraph(Graph graph, int[] projects, int[][] dependencies) {
-        HashMap<Integer, Node<Integer>> myMap = new HashMap<>();
+    private static void createGraph(Util_Graph graph, int[] projects, int[][] dependencies) {
+        HashMap<Integer, Util_Node<Integer>> myMap = new HashMap<>();
         for (int i : projects) {
-            myMap.put(i, new Node<>(i));
+            myMap.put(i, new Util_Node<>(i));
         }
         for (int[] i : dependencies) {
             myMap.get(i[0]).addChild(myMap.get(i[1]));

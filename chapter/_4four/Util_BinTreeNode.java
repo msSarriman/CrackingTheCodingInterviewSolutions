@@ -2,26 +2,26 @@ package chapter._4four;
 
 import static chapter._4four.IntQuest5.isBST;
 /**
- * Node class for Binary Trees
+ * Util_Node class for Binary Trees
  * Create root with default constructor, and add elements with add()
  * The tree is not BST!
  * The tree is not Balanced!
  * 
  * @param <T>
  */
-public class BinTreeNode<T>{
+public class Util_BinTreeNode<T>{
     T data;
-    BinTreeNode<T> left;
-    BinTreeNode<T> right;
-    BinTreeNode<T> father;
+    Util_BinTreeNode<T> left;
+    Util_BinTreeNode<T> right;
+    Util_BinTreeNode<T> father;
     int height;
 
 
     /**
-     * Default Constructor for BinTreeNode()
+     * Default Constructor for Util_BinTreeNode()
      * Used to create the root
      */
-    BinTreeNode() {
+    Util_BinTreeNode() {
         this.data = null;
         this.left = null;
         this.right = null;
@@ -34,7 +34,7 @@ public class BinTreeNode<T>{
      * Constructor to assign the father
      * used to create nodes!=root
      */
-    BinTreeNode(BinTreeNode father) {
+    Util_BinTreeNode(Util_BinTreeNode father) {
         this.data = null;
         this.left = null;
         this.right = null;
@@ -44,14 +44,14 @@ public class BinTreeNode<T>{
 
 
     /**
-     * Constructor to create a BinTreeNode with data;
+     * Constructor to create a Util_BinTreeNode with data;
      *
      * @param data = the data to be contained.
      */
-    BinTreeNode(T data) {
+    Util_BinTreeNode(T data) {
         this.data = data;
-        this.left = new BinTreeNode<>(this);
-        this.right = new BinTreeNode<>(this);
+        this.left = new Util_BinTreeNode<>(this);
+        this.right = new Util_BinTreeNode<>(this);
         this.father = null;
     }
 
@@ -63,7 +63,7 @@ public class BinTreeNode<T>{
      * @param child = the left child to be added
      * @return = true|false
      */
-    protected boolean addLeft(BinTreeNode child) {
+    protected boolean addLeft(Util_BinTreeNode child) {
         if (this.left == null){
             this.left = child;
             return true;
@@ -79,7 +79,7 @@ public class BinTreeNode<T>{
      * @param child = the left child to be added
      * @return = true|false
      */
-    protected boolean addRight(BinTreeNode child) {
+    protected boolean addRight(Util_BinTreeNode child) {
         if (this.right == null){
             this.right = child;
             return true;
@@ -94,7 +94,7 @@ public class BinTreeNode<T>{
      *
      * @param node = the root of the tree
      */
-    public static void printInOrder(BinTreeNode node) {
+    public static void printInOrder(Util_BinTreeNode node) {
         if (node == null) {
             return;
         }
@@ -111,10 +111,10 @@ public class BinTreeNode<T>{
      * @param value = The value to be added to the tree
      */
     protected void add(T value) {
-        BinTreeNode node = findNode(value, this);
+        Util_BinTreeNode node = findNode(value, this);
         node.data = value;
-        node.left = new BinTreeNode<>(node);
-        node.right = new BinTreeNode<>(node);
+        node.left = new Util_BinTreeNode<>(node);
+        node.right = new Util_BinTreeNode<>(node);
     }
 
 
@@ -126,11 +126,11 @@ public class BinTreeNode<T>{
      * @param index = the root of the tree
      * @return = a reference to an empty node
      */
-    private BinTreeNode findNode(T value, BinTreeNode index) {
+    private Util_BinTreeNode findNode(T value, Util_BinTreeNode index) {
         if (index.data == null) {
             return index;
         }
-        BinTreeNode next = ((Integer) index.data > (Integer) value) ? index.left : index.right;
+        Util_BinTreeNode next = ((Integer) index.data > (Integer) value) ? index.left : index.right;
         return findNode(value, next);
     }
 
@@ -141,7 +141,7 @@ public class BinTreeNode<T>{
      *
      * @return = this.left;
      */
-    public BinTreeNode<T> getLeft() {
+    public Util_BinTreeNode<T> getLeft() {
         return left;
     }
 
@@ -152,7 +152,7 @@ public class BinTreeNode<T>{
      *
      * @return = this.right;
      */
-    public BinTreeNode<T> getRight() {
+    public Util_BinTreeNode<T> getRight() {
         return right;
     }
 
@@ -166,7 +166,7 @@ public class BinTreeNode<T>{
      * @param node = the root of the tree.
      * @return = the height of the tree.
      */
-    protected static int getHeight(BinTreeNode node) {
+    protected static int getHeight(Util_BinTreeNode node) {
         int leftSubTreeHeight = 0;
         int rightSubTreeHeight = 0;
         if (node.left != null) {
@@ -182,16 +182,16 @@ public class BinTreeNode<T>{
     /**
      * getNodeHeight()
      * Applies only in BST
-     * This method returns the height of the given Node
+     * This method returns the height of the given Util_Node
      *
      * @param node = node to search for its height.
      * @return = the height of the node.
      */
-    protected int getNodeHeight(BinTreeNode node) {
+    protected int getNodeHeight(Util_BinTreeNode node) {
         if (!isBST(node)) return -1;
         return getNodeHeight(this, node);
     }
-    private int getNodeHeight(BinTreeNode<T> source, BinTreeNode<T> destination) {
+    private int getNodeHeight(Util_BinTreeNode<T> source, Util_BinTreeNode<T> destination) {
         if (source == destination) {
             return 0;
         }
@@ -212,7 +212,7 @@ public class BinTreeNode<T>{
      * @return = the height of the data.
      */
     private int getDataHeight(T data) {
-        BinTreeNode index = this;
+        Util_BinTreeNode index = this;
         if (!isBST(index)) return -1;
         int height = 0;
         while (index != null && (Integer)index.data != (Integer)data) {

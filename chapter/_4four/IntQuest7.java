@@ -32,8 +32,8 @@ package chapter._4four;
 
 /**
  * This class uses
- * -Graph()
- * -TopologicalSort()
+ * -Util_Graph()
+ * -Util_TopologicalSort()
  *
  * It creates a graph G(V,U), where each V is a node (project) and each U is a edge (arc/line).
  * Then it runs a topologicalSort on the given graph and returns the outcome.
@@ -44,11 +44,11 @@ public class IntQuest7 {
     public static void main(String[] args) {
         int[] projects = new int[]{1,2,3,4,5,6};
         int[][] dependencies = new int[][]{{1,4},{2,4},{6,1},{6,2},{2,3}};
-        Graph obj = new Graph();
+        Util_Graph obj = new Util_Graph();
 
         System.out.println(obj.createProjectOrder(projects, dependencies)); //valid
 
-        obj = new Graph();
+        obj = new Util_Graph();
         projects = new int[]{1,2,3,4,5,6,7,8,9};
         dependencies = new int[][]{{5,7},
                 {4,3},
@@ -63,7 +63,7 @@ public class IntQuest7 {
         System.out.println(obj.createProjectOrder(projects, dependencies)); //valid
 
 
-        obj = new Graph();
+        obj = new Util_Graph();
         projects = new int[]{1,2,3,4,5,6,7,8,9};
         dependencies = new int[][]{{5,7},
                 {4,3},

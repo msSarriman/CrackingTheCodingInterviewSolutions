@@ -29,7 +29,7 @@ public class IntQuest4 {
      * @param node = the root of the tree to check
      * @return = true|false
      */
-    public static boolean isBalanced(BinTreeNode node) {
+    public static boolean isBalanced(Util_BinTreeNode node) {
         int leftSubtreeHeight = getTreeDepth(node.left);
         int rightSubTreeHeight = getTreeDepth(node.right);
         return Math.abs(leftSubtreeHeight - rightSubTreeHeight) <= 1;
@@ -43,7 +43,7 @@ public class IntQuest4 {
      * @param node = the Tree to find out the maximum height
      * @return = the height of the Tree
      */
-    public static int getTreeDepth(BinTreeNode node) {
+    public static int getTreeDepth(Util_BinTreeNode node) {
         if (node.data == null)
             return 0;
         int r = 0, l = 0;
@@ -62,7 +62,7 @@ public class IntQuest4 {
          *      2       6       11      20
          *    1   3   5   7   10   12 19   21
          * */
-        BinTreeNode<Integer> root = new BinTreeNode<>();
+        Util_BinTreeNode<Integer> root = new Util_BinTreeNode<>();
         root.add(8);
         root.add(4);        root.add(16);
         root.add(2);        root.add(6);        root.add(11);       root.add(20);
@@ -81,7 +81,7 @@ public class IntQuest4 {
          *                                121   190
          *                                          211
          * */
-        root = new BinTreeNode<>();
+        root = new Util_BinTreeNode<>();
         root.add(8);
         root.add(4);        root.add(16);
         root.add(2);        root.add(6);        root.add(11);       root.add(20);
