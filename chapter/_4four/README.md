@@ -23,7 +23,10 @@ Chapter 4, problems:
      projects: a, b, c, d, e, f
      dependencies: (a, d), (f, b), (b, d), (f, a), (d, c)
      Output: f, e, a, b, d, c
-* 8: _coming next..._
+* 8: First Common Ancestor: Design an algorithm and write code to find the first common ancestor
+     of two nodes in a binary tree. Avoid storing additional nodes in a data structure. NOTE:This is not
+     necessarily a binary search tree
+* 9: _coming next..._
 
 # License
 
