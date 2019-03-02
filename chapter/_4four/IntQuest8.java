@@ -28,5 +28,104 @@
 package chapter._4four;
 
 public class IntQuest8 {
-    // coming next
+
+
+    /**
+     * findCommonAncestor()
+     * This method finds the first common ancestor of the given nodes @a and @b.
+     * It does so by bringing the the reference of the nodes to the same height on the tree, by traversing it upwards,
+     * through the parents.
+     * Then both nodes traverse the tree up together, until the find the first common node that they will refer to.
+     * That node is the first common ancestor.
+     *
+     * @param a = Node a
+     * @param b = Node b
+     * @return =  if common ancestor exists ? commonAncestor : null;
+     */
+    public static Util_BinTreeNode<Integer> findCommonAncestor(Util_BinTreeNode<Integer> a, Util_BinTreeNode<Integer> b) {
+        int deptha = getDepth(a);
+        int depthb = getDepth(b);
+        Util_BinTreeNode<Integer> deepNode = deptha > depthb ? a : b;
+        Util_BinTreeNode<Integer> shallowNode = deptha > depthb ? b : a;
+        int depthDifference = Math.abs(deptha - depthb);
+        while (deepNode != null && depthDifference-- != 0) {
+            deepNode = deepNode.father;
+        }
+        if (deepNode == shallowNode) { // In that case the one Node was the ancestor of the other.
+            return null;
+        }
+        /* Traverse simultaneously upwards until conditions are met. */
+        while (deepNode != shallowNode && deepNode != null && shallowNode != null) {
+            deepNode = deepNode.father;
+            shallowNode = shallowNode.father;
+        }
+        return (deepNode == shallowNode ? deepNode : null);
+    }
+
+
+    /**
+     * getDepth()
+     * This method returns the depth of a node on a tree.
+     * The node must have a reference to its parent.
+     *
+     * @param a = the node that it's height is desired
+     * @return = the height of @a at the tree that it belongs.
+     */
+    public static int getDepth(Util_BinTreeNode a) {
+        int counter = 0;
+        Util_BinTreeNode node = a;
+        while (node != null) {
+            node = node.father;
+            counter++;
+        }
+        return counter;
+    }
+
+
+
+    public static void main(String[] args) {
+        /* Binary tree to be created:
+         *                  8
+         *          4               16
+         *      2       6       11      20
+         *    1   3   5   7   10   12 19   21
+         * */
+        Util_BinTreeNode<Integer> node8 = new Util_BinTreeNode<>(8);
+        Util_BinTreeNode<Integer> node4 = new Util_BinTreeNode<>(4, node8);
+        Util_BinTreeNode<Integer> node16 = new Util_BinTreeNode<>(16, node8);
+        Util_BinTreeNode<Integer> node2 = new Util_BinTreeNode<>(2, node4);
+        Util_BinTreeNode<Integer> node6 = new Util_BinTreeNode<>(6, node4);
+        Util_BinTreeNode<Integer> node11 = new Util_BinTreeNode<>(11, node16);
+        Util_BinTreeNode<Integer> node20 = new Util_BinTreeNode<>(20, node16);
+        Util_BinTreeNode<Integer> node1 = new Util_BinTreeNode<>(1, node2);
+        Util_BinTreeNode<Integer> node3 = new Util_BinTreeNode<>(3, node2);
+        Util_BinTreeNode<Integer> node5 = new Util_BinTreeNode<>(5, node6);
+        Util_BinTreeNode<Integer> node7 = new Util_BinTreeNode<>(7, node6);
+        Util_BinTreeNode<Integer> node10 = new Util_BinTreeNode<>(10, node11);
+        Util_BinTreeNode<Integer> node12 = new Util_BinTreeNode<>(12, node11);
+        Util_BinTreeNode<Integer> node19 = new Util_BinTreeNode<>(19, node20);
+        Util_BinTreeNode<Integer> node21 = new Util_BinTreeNode<>(21, node20);
+
+        //Util_BinTreeNode<Integer> root = node8;
+        node8.addLeft(node4);
+        node8.addRight(node16);
+        node4.addLeft(node2);
+        node4.addRight(node6);
+        node2.addLeft(node1);
+        node2.addRight(node3);
+        node6.addLeft(node5);
+        node6.addRight(node7);
+        node16.addLeft(node11);
+        node16.addRight(node20);
+        node11.addLeft(node10);
+        node11.addRight(node12);
+        node20.addLeft(node19);
+        node20.addRight(node21);
+
+        System.out.println("The first common ancestor of 1 and 4: " + findCommonAncestor( node1, node4));
+        System.out.println("The first common ancestor of 3 and 7: " + findCommonAncestor( node3, node7));
+        System.out.println("The first common ancestor of 4 and 21: " + findCommonAncestor( node4, node21));
+        System.out.println("The first common ancestor of 10 and 20: " + findCommonAncestor( node10, node20));
+        System.out.println("The first common ancestor of 3 and 11: " + findCommonAncestor( node3, node11));
+    }
 }

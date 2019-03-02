@@ -57,6 +57,19 @@ public class Util_BinTreeNode<T>{
 
 
     /**
+     * Constructor to create a Util_BinTreeNode with data;
+     *
+     * @param data = the data to be contained.
+     */
+    Util_BinTreeNode(T data, Util_BinTreeNode<T> father) {
+        this.data = data;
+        this.left = new Util_BinTreeNode<>(this);
+        this.right = new Util_BinTreeNode<>(this);
+        this.father = father;
+    }
+
+
+    /**
      * addLeft()
      * This method ads the left child.
      *
