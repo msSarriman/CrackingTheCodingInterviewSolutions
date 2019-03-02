@@ -1,4 +1,5 @@
 /**
+ * TOPOLOGICAL SORT PROBLEM
  * Build Order: You are given a list of projects and a list of dependencies (which is a list of pairs of
  * projects, where the second project is dependent on the first project). All of a project's dependencies
  * must be built before the project is. Find a build order that will allow the projects to be built. If there
@@ -28,35 +29,26 @@
  */
 package chapter._4four;
 
-import java.util.LinkedList;
-import static chapter._4four.TopologicalSort.topologicalSort;
+
+/**
+ * This class uses
+ * -Graph()
+ * -TopologicalSort()
+ *
+ * It creates a graph G(V,U), where each V is a node (project) and each U is a edge (arc/line).
+ * Then it runs a topologicalSort on the given graph and returns the outcome.
+ * Prints null, if topological order in the given graph is not available.
+ */
 public class IntQuest7 {
-    static class Graph {
-        LinkedList<Node<Integer>> startNodes;
-
-        Graph() {
-            startNodes = new LinkedList<>();
-        }
-
-
-        public void addStartNode(Node<Integer> node) {
-            startNodes.add(node);
-        }
-
-        public LinkedList createProjectOrder(int[] projects, int[][] dependencies) {
-            return topologicalSort(this, projects, dependencies);
-        }
-    }
-
-
 
     public static void main(String[] args) {
         int[] projects = new int[]{1,2,3,4,5,6};
         int[][] dependencies = new int[][]{{1,4},{2,4},{6,1},{6,2},{2,3}};
-
         Graph obj = new Graph();
+
         System.out.println(obj.createProjectOrder(projects, dependencies)); //valid
 
+        obj = new Graph();
         projects = new int[]{1,2,3,4,5,6,7,8,9};
         dependencies = new int[][]{{5,7},
                 {4,3},
@@ -70,6 +62,8 @@ public class IntQuest7 {
         };
         System.out.println(obj.createProjectOrder(projects, dependencies)); //valid
 
+
+        obj = new Graph();
         projects = new int[]{1,2,3,4,5,6,7,8,9};
         dependencies = new int[][]{{5,7},
                 {4,3},
@@ -84,5 +78,5 @@ public class IntQuest7 {
         };
         System.out.println(obj.createProjectOrder(projects, dependencies)); //null
     }
-
 }
+

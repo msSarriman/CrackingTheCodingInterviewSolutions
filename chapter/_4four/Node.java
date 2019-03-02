@@ -112,4 +112,15 @@ public class Node<T> {
         }
         return false;
     }
+
+
+    /**
+     * getMyChilds()
+     * Getter for myChilds
+     *
+     * @return this.myChilds
+     */
+    public LinkedList<Node<T>> getMyChilds() {
+        return myChilds;
+    }
 }

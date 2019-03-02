@@ -1,25 +1,70 @@
 package chapter._4four;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.*;
 
 
 /**
- * UNDER CONSTRUCTION
+ * This class performs a Topological Sort on the given projects.
+ * Projects are injected as nodes into @graph
+ * Dependencies act like vertices in the @graph.
  */
 public class TopologicalSort {
+    static HashSet<Node> visited; // The visited nodes of each algorithm's execution.
 
-    public static LinkedList topologicalSort(IntQuest7.Graph graph, int[] projects, int[][] dependencies) {
+
+    /**
+     * tiologicalSort()
+     * This method performs the algorithm on the given Graph. It also creates the required Graph which is empty by the
+     * time.
+     *
+     * @param graph = The initiated graph. To be populated.
+     * @param projects = The nodes of the graph.
+     * @param dependencies = The vertices of the graph.
+     * @return = LinkedList|null
+     */
+    static LinkedList topologicalSort(Graph graph, int[] projects, int[][] dependencies) {
+        LinkedList<Integer> myList = new LinkedList<>();
+        visited = new HashSet<>();
         createGraph(graph, projects, dependencies);
         if (graph.startNodes.size() == 0) {
             return null;
         }
         for (Node<Integer> node : graph.startNodes) {
-
+            if (node.getMyChilds().size() == 0) {
+                myList.add(0, node.data);
+            } else {
+                Stack<Integer> myOrderedStack = new Stack<>();
+                getDfsOrder(node, myOrderedStack);
+                for (Integer i : myOrderedStack) {
+                    myList.add(0, i);
+                }
+            }
         }
-        return null;
+        return (myList.size() == projects.length ? myList : null);
+    }
+
+
+    /**
+     * This method returns the appearance of the nodes, at a given @node, using the DFS algorithm.
+     *
+     * @param node = the node to run DFS to.
+     * @param order = the order of the appeared items.
+     */
+    private static void getDfsOrder(Node<Integer> node, Stack<Integer> order) {
+        if (visited.contains(node)) {
+            return;
+        }
+        visited.add(node);
+        int counter = 0;
+        for (Node<Integer> child : node.getMyChilds()) {
+            getDfsOrder(child, /*visited,*/ order);
+            if (visited.contains(child)) {
+                counter ++;
+            }
+        }
+        if (counter == node.getMyChilds().size()) {
+            order.add(node.data);
+        }
     }
 
 
@@ -31,7 +76,7 @@ public class TopologicalSort {
      * @param projects =
      * @param dependencies
      */
-    public static void createGraph(IntQuest7.Graph graph, int[] projects, int[][] dependencies) {
+    private static void createGraph(Graph graph, int[] projects, int[][] dependencies) {
         HashMap<Integer, Node<Integer>> myMap = new HashMap<>();
         for (int i : projects) {
             myMap.put(i, new Node<>(i));
@@ -53,7 +98,7 @@ public class TopologicalSort {
      * @param dependencies = All the arcs.
      * @return = The "strong" nodes.
      */
-    public static HashSet<Integer> identifyStrongNodes(int[] projects, int[][] dependencies) {
+    private static HashSet<Integer> identifyStrongNodes(int[] projects, int[][] dependencies) {
         HashSet<Integer> mySet = new HashSet<>();
         for (int i : projects) {
             mySet.add(i);
