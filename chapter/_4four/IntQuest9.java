@@ -120,8 +120,8 @@ public class IntQuest9 {
         Util_BinTreeNode<Integer> root = new Util_BinTreeNode<>();
         root.add(8);
         root.add(4);        root.add(16);
-        /*root.add(2);        root.add(6);        root.add(11);       root.add(20);
-        root.add(1);        root.add(3);        root.add(5);        root.add(7);
+        root.add(2);        root.add(6);        root.add(11);       root.add(20);
+        /*root.add(1);        root.add(3);        root.add(5);        root.add(7);
         root.add(10);       root.add(12);       root.add(19);       root.add(21);*/
 
         for (String str : inputStringCalculator(root)) {
