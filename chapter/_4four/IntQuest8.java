@@ -89,7 +89,7 @@ public class IntQuest8 {
          *          4               16
          *      2       6       11      20
          *    1   3   5   7   10   12 19   21
-         * */
+         *  */
         Util_BinTreeNode<Integer> node8 = new Util_BinTreeNode<>(8);
         Util_BinTreeNode<Integer> node4 = new Util_BinTreeNode<>(4, node8);
         Util_BinTreeNode<Integer> node16 = new Util_BinTreeNode<>(16, node8);

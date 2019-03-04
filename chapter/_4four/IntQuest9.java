@@ -25,7 +25,8 @@
 package chapter._4four;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * Credits to the book's solutions.
@@ -41,7 +42,7 @@ public class IntQuest9 {
      * @return
      */
     public static ArrayList<LinkedList<Integer>> allSequences(Util_BinTreeNode node) {
-        ArrayList<LinkedList<Integer>> result = new ArrayList <>();
+        ArrayList<LinkedList<Integer>> result = new ArrayList<>();
 
         if (node == null || node.data == null) {
             result.add(new LinkedList<>());
@@ -113,9 +114,15 @@ public class IntQuest9 {
         root.add(8);
         root.add(4);        root.add(16);
         root.add(2);        root.add(6);        root.add(11);       root.add(20);
+        /*
+        Caution. Adding the bellow nodes, causes the java.lang.OutOfMemoryError: GC overhead limit exceeded
         root.add(1);        root.add(3);        root.add(5);        root.add(7);
         root.add(10);       root.add(12);       root.add(19);       root.add(21);
+        */
+        System.out.println(java.time.LocalTime.now());
         ArrayList<LinkedList<Integer>> aofl = allSequences(root);
+        System.out.println(java.time.LocalTime.now());
+
         for (LinkedList<Integer> list : aofl) {
             for (Integer i : list) {
                 System.out.print(i + ",");
