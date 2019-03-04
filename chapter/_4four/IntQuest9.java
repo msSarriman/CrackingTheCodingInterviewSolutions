@@ -24,90 +24,82 @@
  */
 package chapter._4four;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+
+import java.util.*;
 
 /**
- * Under Construction
+ * Credits to the book's solutions.
  */
 public class IntQuest9 {
 
-    public static LinkedList<String> inputStringCalculator(Util_BinTreeNode<Integer> node) {
-        HashMap<Integer, LinkedList<String>> myStrings = new HashMap<>();
-        LinkedList<Util_BinTreeNode> myQueue = new LinkedList<>();
-        myQueue.add(node);
-        StringBuilder perHeightQueue = new StringBuilder();
-        while (!myQueue.isEmpty()) {
-            Util_BinTreeNode tempNode = myQueue.remove();
-            if (tempNode.left != null && tempNode.left.data != null) {
-                myQueue.add(tempNode.left);
-            }
-            if (tempNode.right != null && tempNode.left.data != null) {
-                myQueue.add(tempNode.right);
-            }
-            int tempHeight = tempNode.height;
-            perHeightQueue.append(tempNode.data);
-            if (myQueue.isEmpty() || (myQueue.peek().height != tempHeight)) {
-                LinkedList<String> tempList;
-                if (myStrings.containsKey(tempHeight)) {
-                    tempList = permutationResults(perHeightQueue.toString());
-                    for (String str : tempList) {
-                        myStrings.get(tempHeight).add(str);
-                    }
-                } else {
-                    myStrings.put(tempHeight, new LinkedList<>());
-                    tempList = permutationResults(perHeightQueue.toString());
-                    for (String str : tempList) {
-                        myStrings.get(tempHeight).add(str);
-                    }
-                }
-                perHeightQueue = new StringBuilder();
+
+    /**
+     * allSequences()
+     * This method creates all the suquences of a tree/subtree, with the root @node.
+     *
+     * @param node = the root of the tree|subtree
+     * @return
+     */
+    public static ArrayList<LinkedList<Integer>> allSequences(Util_BinTreeNode node) {
+        ArrayList<LinkedList<Integer>> result = new ArrayList <>();
+
+        if (node == null || node.data == null) {
+            result.add(new LinkedList<>());
+            return result;
+
+        }
+
+        LinkedList<Integer> prefix = new LinkedList<Integer> ();
+        prefix.add((Integer)node.data);
+        /* Recurse on left and right subtrees. */
+        ArrayList<LinkedList<Integer>> leftSeq = allSequences(node.left);
+        ArrayList<LinkedList<Integer>> rightSeq = allSequences(node.right);
+
+        /* Weave together each list from the left and right sides. */
+        for (LinkedList<Integer> left : leftSeq) {
+            for (LinkedList<Integer> right : rightSeq) {
+                ArrayList <LinkedList<Integer>> weaved = new ArrayList<>() ;
+                weaveLists(left, right, weaved, prefix);
+                result.addAll(weaved);
             }
         }
-        return valuesToLinkedList(myStrings);
+        return result;
     }
 
 
-    public static LinkedList<String> valuesToLinkedList(HashMap<Integer, LinkedList<String>> map) {
-        LinkedList<String> myList = new LinkedList<>();
-        for (Map.Entry<Integer, LinkedList<String>> kv : map.entrySet()) {
-            for (String str : kv.getValue()) {
-                myList.add(str);
-            }
+    /**
+     * weaveLists()
+     * This method creates all the permutations of a given list.
+     *
+     * @param first
+     * @param second
+     * @param results
+     * @param prefix
+     */
+    public static void weaveLists(LinkedList<Integer> first, LinkedList <Integer> second,
+                        ArrayList<LinkedList<Integer>> results, LinkedList<Integer> prefix) {
+        /* One list is empty. Add remainder to [a cloned] prefix and store result. */
+        if (first.size() == 0 || second.size() == 0) {
+            LinkedList<Integer> result = (LinkedList<Integer>) prefix.clone() ;
+            result.addAll(first);
+            result.addAll(second);
+            results.add(result);
+            return;
         }
-        return myList;
+        /* Recurse with head of first added to the prefix. Removing the head will damage
+                * first, so we'll need to put it back where we found it afterwards. */
+        int headFirst = first.removeFirst();
+        prefix.addLast(headFirst);
+        weaveLists(first, second, results, prefix);
+        prefix.removeLast();
+        first.addFirst(headFirst);
+        /* Do the same thing with second, damaging and then restoring the list.*/
+        int headSecond = second.removeFirst();
+        prefix.addLast(headSecond);
+        weaveLists(first, second, results, prefix);
+        prefix.removeLast();
+        second.addFirst(headSecond);
     }
-
-
-    public static LinkedList<String> permutationResults(String str) {
-        LinkedList<String> myList = new LinkedList<>();
-        permutationResults(str, 0, str.length() - 1, myList);
-        return myList;
-    }
-
-
-    private static void permutationResults(String str, int left, int right, LinkedList<String> myList) {
-        if (left == right) {
-            myList.add(str);
-        } else {
-            for (int i = left; i <= right; i++) {
-                str = swap(str, left, i);
-                permutationResults(str, left + 1, right, myList);
-                str = swap(str, left, i);
-            }
-        }
-    }
-
-
-    private static String swap(String str, int left, int right) {
-        char[] mySb = str.toCharArray();
-        char temp = mySb[left];
-        mySb[left] = mySb[right];
-        mySb[right] = temp;
-        return String.valueOf(mySb);
-    }
-
 
 
     public static void main(String[] args) {
@@ -123,9 +115,12 @@ public class IntQuest9 {
         root.add(2);        root.add(6);        root.add(11);       root.add(20);
         /*root.add(1);        root.add(3);        root.add(5);        root.add(7);
         root.add(10);       root.add(12);       root.add(19);       root.add(21);*/
-
-        for (String str : inputStringCalculator(root)) {
-            System.out.println(str);
+        ArrayList<LinkedList<Integer>> aofl = allSequences(root);
+        for (LinkedList<Integer> list : aofl) {
+            for (Integer i : list) {
+                System.out.print(i + ",");
+            }
+            System.out.println("  ");
         }
     }
 }
