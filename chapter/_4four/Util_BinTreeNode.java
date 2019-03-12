@@ -77,7 +77,7 @@ public class Util_BinTreeNode<T>{
      * @return = true|false
      */
     protected boolean addLeft(Util_BinTreeNode child) {
-        if (this.left == null){
+        if (this.left == null || this.left.data == null){
             this.left = child;
             return true;
         }
@@ -93,7 +93,7 @@ public class Util_BinTreeNode<T>{
      * @return = true|false
      */
     protected boolean addRight(Util_BinTreeNode child) {
-        if (this.right == null){
+        if (this.right == null || this.right.data == null){
             this.right = child;
             return true;
         }
