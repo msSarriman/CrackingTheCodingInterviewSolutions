@@ -39,7 +39,11 @@ Chapter 4, problems:
                Node1   Node3
                
      Output: {2, 1, 3}, {2, 3, 1}
-* 10: _coming next..._
+* 10:Random Node: You are implementing a binary tree class from scratch which, in addition to
+     insert, find, and delete, has a method getRandomNode() which returns a random node
+     from the tree. All nodes should be equally likely to be chosen. Design and implement an algorithm
+     for getRandomNode, and explain how you would implement the rest of the methods.
+* 11: _coming next..._
 
 # License
 
