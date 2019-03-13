@@ -39,10 +39,10 @@ Chapter 4, problems:
                Node1   Node3
                
      Output: {2, 1, 3}, {2, 3, 1}
-* 10:Random Node: You are implementing a binary tree class from scratch which, in addition to
-     insert, find, and delete, has a method getRandomNode() which returns a random node
-     from the tree. All nodes should be equally likely to be chosen. Design and implement an algorithm
-     for getRandomNode, and explain how you would implement the rest of the methods.
+* 10:Check Subtree: Tl and T2 are two very large binary trees, with Tl much bigger than T2. Create an
+     algorithm to determine if T2 is a subtree of Tl.
+     A tree T2 is a subtree ofTi if there exists a node n in Ti such that the subtree of n is identical to T2.
+     That is, if you cut off the tree at node n, the two trees would be identical.
 * 11: _coming next..._
 
 # License
