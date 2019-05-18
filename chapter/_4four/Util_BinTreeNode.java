@@ -50,6 +50,7 @@ public class Util_BinTreeNode<T>{
      */
     Util_BinTreeNode(T data) {
         this.data = data;
+        this.height = 0;
         this.left = new Util_BinTreeNode<>(this);
         this.right = new Util_BinTreeNode<>(this);
         this.father = null;
@@ -63,6 +64,7 @@ public class Util_BinTreeNode<T>{
      */
     Util_BinTreeNode(T data, Util_BinTreeNode<T> father) {
         this.data = data;
+        this.height = father.height + 1;
         this.left = new Util_BinTreeNode<>(this);
         this.right = new Util_BinTreeNode<>(this);
         this.father = father;

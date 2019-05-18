@@ -43,7 +43,14 @@ Chapter 4, problems:
      algorithm to determine if T2 is a subtree of Tl.
      A tree T2 is a subtree ofTi if there exists a node n in Ti such that the subtree of n is identical to T2.
      That is, if you cut off the tree at node n, the two trees would be identical.
-* 11: _coming next..._
+* 11:Random Node: You are implementing a binary tree class from scratch which, in addition to
+     insert, find, and delete, has a method getRandomNode() which returns a random node
+     from the tree. All nodes should be equally likely to be chosen. Design and implement an algorithm
+     for getRandomNode, and explain how you would implement the rest of the methods.
+* 12:Paths with Sum: You are given a binary tree in which each node contains an integer value (which
+     might be positive or negative). Design an algorithm to count the number of paths that sum to a
+     given value. The path does not need to start or end at the root or a leaf, but it must go downwards
+     (traveling only from parent nodes to child nodes).
 
 # License
 
