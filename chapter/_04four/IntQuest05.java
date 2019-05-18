@@ -21,7 +21,7 @@
  */
 package chapter._04four;
 
-public class IntQuest5 {
+public class IntQuest05 {
 
     /**
      * isBST()

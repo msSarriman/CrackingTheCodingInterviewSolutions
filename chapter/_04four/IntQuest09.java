@@ -31,7 +31,7 @@ import java.util.LinkedList;
 /**
  * Credits to the book's solutions.
  */
-public class IntQuest9 {
+public class IntQuest09 {
 
 
     /**

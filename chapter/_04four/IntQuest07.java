@@ -39,7 +39,7 @@ package chapter._04four;
  * Then it runs a topologicalSort on the given graph and returns the outcome.
  * Prints null, if topological order in the given graph is not available.
  */
-public class IntQuest7 {
+public class IntQuest07 {
 
     public static void main(String[] args) {
         int[] projects = new int[]{1,2,3,4,5,6};

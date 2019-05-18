@@ -12,10 +12,10 @@ package chapter._04four;
 
 import java.util.LinkedList;
 
-public class IntQuest3<T> {
+public class IntQuest03<T> {
     LinkedList<LinkedList<T>> myList;
 
-    IntQuest3() {
+    IntQuest03() {
         myList = new LinkedList<>();
     }
 
@@ -90,7 +90,7 @@ public class IntQuest3<T> {
         root.add(21);
 
 
-        IntQuest3<Integer> obj = new IntQuest3<>();
+        IntQuest03<Integer> obj = new IntQuest03<>();
         obj.bfsAddUp(root);
         obj.printList(obj.myList);
 

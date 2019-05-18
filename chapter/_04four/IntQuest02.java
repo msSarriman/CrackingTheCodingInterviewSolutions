@@ -17,7 +17,7 @@ package chapter._04four;
 import java.util.Arrays;
 import static chapter._04four.Util_BinTreeNode.printInOrder;
 
-class IntQuest2 {
+class IntQuest02 {
 
     public static Util_BinTreeNode<Integer> createMinimalBST(int[] array, Util_BinTreeNode<Integer> node) {
         if (node == null || array.length == 0){

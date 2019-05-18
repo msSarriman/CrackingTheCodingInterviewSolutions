@@ -1,6 +1,6 @@
 package chapter._04four;
 
-import static chapter._04four.IntQuest5.isBST;
+import static chapter._04four.IntQuest05.isBST;
 /**
  * Util_Node class for Binary Trees
  * Create root with default constructor, and add elements with add()

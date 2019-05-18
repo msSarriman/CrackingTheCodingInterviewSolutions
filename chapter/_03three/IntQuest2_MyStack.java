@@ -5,7 +5,7 @@ package chapter._03three;
  * pop, push, minValue,  in Time=O(1)
  * <p>
  * FOLLOW UP
- * IntQuest5: isEmpty, peek;
+ * IntQuest05: isEmpty, peek;
  *
  * @param <T>
  */

@@ -27,7 +27,7 @@
  */
 package chapter._04four;
 
-public class IntQuest8 {
+public class IntQuest08 {
 
 
     /**

@@ -11,7 +11,7 @@ import java.util.HashSet;
 import static chapter._04four.Util_Node.findPathDFS;
 import static chapter._04four.Util_Node.findPathBFS;
 
-public class IntQuest1 {
+public class IntQuest01 {
 
 
     /**
