@@ -37,10 +37,47 @@
  */
 package chapter._4four;
 
+import java.util.LinkedList;
+
 public class IntQuest11 {
-    // Under Construction
+
+    /**
+     * This method traverses the Tree with an inOrder notation, and stores the Nodes in a LinkedList. Then
+     * it extracts a random node form the created list.
+     * Space and time Complexity is O(N)
+     * @param node = The root of the tree
+     * @return
+     */
+    public static Util_BinTreeNode getRandomBigON(Util_BinTreeNode<Integer> node) {
+        LinkedList<Util_BinTreeNode> myNodes = new LinkedList<>();
+        traverseAndStore(myNodes, node);
+        int randomIndex = (int) (Math.random() * (myNodes.size() - 1));
+        return myNodes.get(randomIndex);
+    }
+
+    /**
+     * The inorder traversal that is needed in getRandomBigON method()
+     * @param myList The list that will get populated with the nodes of the tree.
+     * @param node The node that is needed to make the recursive traversal
+     */
+    private static void traverseAndStore(LinkedList<Util_BinTreeNode> myList, Util_BinTreeNode node) {
+        if (node.left != null && node.left.data != null) {
+            traverseAndStore(myList, node.left);
+        }
+        myList.add(node);
+        if (node.right != null && node.right.data != null) {
+            traverseAndStore(myList, node.right);
+        }
+    }
+
 
     public static void main(String[] args) {
+        Util_BigTree_Question11 myTree = new Util_BigTree_Question11();
+        Util_BinTreeNode<Integer> randomResult = getRandomBigON(myTree.bigRoot);
+
+        System.out.printf("The random result in O(N) is: <%d>\n", randomResult.data);
+
 
     }
 }
+
