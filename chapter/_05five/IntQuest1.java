@@ -8,6 +8,11 @@
  * Input: N 10000000000, Μ = 10011, i 2, j 6
  * Output: N 10001001100
  * Hints: # 137, #169, #215
+ * - Break this into parts. Focus first on clearing the appropriate bits
+ * - To clear the bits, create a "bit mask"that looks like a series of 1s, then Os, then 1s
+ * - It's easy to create a bit mask of Os at the beginning or end. But how do you create a bit
+ * mask with a bunch of zeroes in the middle? Do it the easy way: Create a bit mask for the
+ * left side and then another one for the right side.Then you can merge those.
  */
 package chapter._05five;
 
