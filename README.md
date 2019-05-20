@@ -10,6 +10,7 @@ Contents of chapters implemented (so far):
 * Chapter 2: Linked Lists
 * Chapter 3: Stacks and Queues
 * Chapter 4: Trees and Graphs
+* Chapter 5: Bit Manipulation
 
 # License
 
