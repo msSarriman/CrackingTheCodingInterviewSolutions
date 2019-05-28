@@ -26,7 +26,7 @@ SOFTWARE.
  * remove a character, or replace a character. Given _02two strings, write a function to check if they are
  * _01one edit (or zero edits) away.
  * EXAMPLE
- * pale, pIe -> true
+ * pale, ple -> true
  * pales. pale -> true
  * pale. bale -> true
  * pale. bake -> false
