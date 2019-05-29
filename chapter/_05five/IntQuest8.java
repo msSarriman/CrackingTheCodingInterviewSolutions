@@ -56,18 +56,18 @@ public class IntQuest8 {
         y--;
 
         // Calculate first and last byte, than tend towards manipulation
-        int firstByte = x1 / myScreen.length;
-        int lastByte = x2 / myScreen.length;
+        int firstByte = x1 / 8;
+        int lastByte = x2 / 8;
 
         // if there is only one byte to manipulate
         if (firstByte == lastByte) {
             myScreen[firstByte][y] =
                     startFromStopTo(myScreen[firstByte][y], x1, x2);
         } else {
-            myScreen[firstByte / myScreen.length][y] =
-                    stopToLSB(myScreen[firstByte / myScreen.length][y], x1);
-            myScreen[lastByte / myScreen.length][y] =
-                    startFromLSB(myScreen[lastByte / myScreen.length][y], x2);
+            myScreen[firstByte][y] =
+                    stopToLSB(myScreen[firstByte][y], x1);
+            myScreen[lastByte][y] =
+                    startFromLSB(myScreen[lastByte][y], x2);
             for (int i = firstByte + 1; i < lastByte; i++) {
                 myScreen[i][y] = (byte) 0;
             }
@@ -126,8 +126,8 @@ public class IntQuest8 {
         int x1 = 0;
         int x2 = 64;
         int y = 3;
-        myScreen = drawLine(myScreen, x1, x2, y);
-        printScreen(myScreen);
+        byte[][] myScreen1 = drawLine(myScreen, x1, x2, y);
+        printScreen(myScreen1);
     }
 }
 
