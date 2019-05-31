@@ -61,15 +61,12 @@ public class IntQuest8 {
 
         // if there is only one byte to manipulate
         if (firstByte == lastByte) {
-            myScreen[firstByte][y] =
-                    startFromStopTo(myScreen[firstByte][y], x1, x2);
+            myScreen[y][firstByte] = startFromStopTo(myScreen[y][firstByte], x1, x2);
         } else {
-            myScreen[firstByte][y] =
-                    stopToLSB(myScreen[firstByte][y], x1);
-            myScreen[lastByte][y] =
-                    startFromLSB(myScreen[lastByte][y], x2);
+            myScreen[y][firstByte] = stopToLSB(myScreen[y][firstByte], x1);
+            myScreen[y][lastByte] = startFromLSB(myScreen[y][lastByte], x2);
             for (int i = firstByte + 1; i < lastByte; i++) {
-                myScreen[i][y] = (byte) 0;
+                myScreen[y][i] = (byte) 0;
             }
         }
         return myScreen;
@@ -130,6 +127,3 @@ public class IntQuest8 {
         printScreen(myScreen1);
     }
 }
-
-// 00110000000100011011111111001100010010110000110111110000010011111100000001011110110000101100101000101000111101101000110010110000
-// 00110000000100011011111111001100010010110000110111110000010011111100000001011110110000101100101000101000111101101000110010110000
