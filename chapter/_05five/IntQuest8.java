@@ -31,14 +31,17 @@ SOFTWARE.
  */
 package chapter._05five;
 
-import org.jetbrains.annotations.Contract;
 
 import java.util.Scanner;
 import java.util.Random;
 
-// under construction
 public class IntQuest8 {
 
+
+    /**
+     * This function prints the 2d array given as input @myScreen
+     * @param myScreen
+     */
     private static void printScreen(byte[][] myScreen) {
         System.out.println("Image follows:");
         for (byte b1[] : myScreen) {
@@ -51,7 +54,15 @@ public class IntQuest8 {
     }
 
 
-    private static byte[][] drawLine(byte[][] myScreen, int x1, int x2, int y) {
+    /**
+     * This function draws a line (sets all bits to zero), from position (x1,y) to (x2, y).
+     * @param myScreen -> The "screen" (2d array) to draw the line into.
+     * @param x1
+     * @param x2
+     * @param y
+     * @return @myScreen[][] with a line drawn.
+     */
+    protected static byte[][] drawLine(byte[][] myScreen, int x1, int x2, int y) {
         // Normalize y start index at 0
         y--;
 
@@ -73,6 +84,13 @@ public class IntQuest8 {
     }
 
 
+    /**
+     * This function, starting from @x2 (LSB) and ending at @x1 (MSB), sets all bits at @b to zero.
+     * @param b
+     * @param x1
+     * @param x2
+     * @return the byte @b with the corresponding bits set to zero
+     */
     private static byte startFromStopTo(byte b, int x1, int x2) {
         int startAtLSB = x2 % 8 == 0 ? 0 : 8 - (x2 % 8);
         int endAtMSB = x1 % 8 == 0 ? 0 : 8 - (x1 % 8);
@@ -82,7 +100,12 @@ public class IntQuest8 {
         return b;
     }
 
-
+    /**
+     * This function, starting from LSB and ending at @x1 (MSB), sets all bits at @b to zero.
+     * @param b
+     * @param x
+     * @return the byte @b with the corresponding bits set to zero
+     */
     private static byte stopToLSB(byte b, int x) {
         int endAtLsb = x % 8 == 0 ? 0 : 8 - (x % 8);
         for (int i = 7; i >= endAtLsb; i--) {
@@ -92,6 +115,12 @@ public class IntQuest8 {
     }
 
 
+    /**
+     * This function, starting from @x (LSB) and ending at MSB, sets all bits at @b to zero,
+     * @param b
+     * @param x
+     * @return the byte @b with the corresponding bits set to zero
+     */
     private static byte startFromLSB(byte b, int x) {
         int startFromLsb = x % 8 == 0 ? 0 : 8 - (x % 8);
         for (int i = startFromLsb; i <= 8; i++) {
@@ -99,6 +128,7 @@ public class IntQuest8 {
         }
         return b;
     }
+
 
     public static void main(String[] args) {
         int w;
@@ -123,7 +153,9 @@ public class IntQuest8 {
         int x1 = 0;
         int x2 = 64;
         int y = 3;
+        // draw line
         byte[][] myScreen1 = drawLine(myScreen, x1, x2, y);
+        // print screen
         printScreen(myScreen1);
     }
 }
